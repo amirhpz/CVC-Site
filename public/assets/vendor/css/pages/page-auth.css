@@ -1,0 +1,213 @@
+.authentication-wrapper {
+    display: flex;
+    flex-basis: 100%;
+    min-height: 100vh;
+    background-image: url("../../../../site/assets/images/error/lawfirm-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 180px 0 100px;
+}
+.authentication-wrapper .authentication-inner {
+  width: 100%;
+}
+.authentication-wrapper.authentication-basic {
+  align-items: center;
+  justify-content: center;
+}
+.authentication-wrapper .auth-cover-illustration {
+  z-index: 1;
+  max-inline-size: 38rem;
+}
+.authentication-wrapper .authentication-image {
+  z-index: -1;
+  inline-size: 100%;
+  inset-block-end: 7%;
+  position: absolute;
+  inset-inline-start: 0;
+}
+.authentication-wrapper.authentication-cover {
+  align-items: flex-start;
+}
+.authentication-wrapper.authentication-cover .authentication-inner {
+  min-height: 100vh;
+  position: relative;
+}
+.authentication-wrapper.authentication-cover .authentication-image {
+  inline-size: 70%;
+}
+html:not([dir=rtl]) .authentication-wrapper.authentication-cover .authentication-image {
+  inset-inline-start: unset;
+}
+.authentication-wrapper.authentication-basic .authentication-inner {
+  max-width: 450px;
+}
+.authentication-wrapper .auth-input-wrapper .auth-input {
+  max-width: 50px;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  font-size: 150%;
+}
+
+@media (max-width: 575.98px) {
+  .authentication-wrapper .auth-input-wrapper .auth-input {
+    font-size: 1.125rem;
+  }
+}
+@media (max-width: 1199.98px) {
+  .authentication-cover .authentication-image {
+    inset-block-end: 9%;
+  }
+  [dir=rtl] .authentication-cover .authentication-image {
+    inline-size: 65%;
+  }
+}
+#twoStepsForm .fv-plugins-bootstrap5-row-invalid .form-control {
+  border-color: #ff4d49;
+}
+
+.light-style .authentication-wrapper .authentication-bg {
+  background-color: #fff;
+}
+
+.dark-style .authentication-wrapper .authentication-bg {
+  background-color: #30334e;
+}
+
+.authentication-wrapper .authentication-inner .card {
+    width: 100%;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.google-btn {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 12px 0;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: 0.3s;
+}
+
+.google-btn img {
+    width: 22px;
+    height: 22px;
+}
+
+.google-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* --- Shared Base for Glass Buttons --- */
+.glass-btn-base {
+    padding: 12px 0;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 14px;
+    transition: 0.25s ease-in-out;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- PRIMARY (ورود) --- */
+.glass-btn-primary {
+    background: rgba(255, 255, 255, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    color: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.glass-btn-primary:hover {
+    background: rgba(255, 255, 255, 0.38);
+    border-color: rgba(255, 255, 255, 0.65);
+    transform: translateY(-2px);
+}
+
+/* --- SECONDARY (OTP) --- */
+.glass-btn-secondary {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    box-shadow: none;
+    font-weight: 500;
+}
+
+.glass-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.20);
+    border-color: rgba(255, 255, 255, 0.35);
+    transform: translateY(-1px);
+}
+
+/* Fix text color for <a> */
+.glass-btn-secondary:link,
+.glass-btn-secondary:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.app-brand-text .text-heading span{
+    color: white;
+}
+
+/* Glassmorphism for floating inputs inside auth card */
+.authentication-wrapper .authentication-inner .form-floating-outline {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+
+.authentication-wrapper .authentication-inner .form-floating-outline .form-control {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+    color: #ffffff;
+    padding-right: 12px;
+    padding-left: 12px;
+}
+
+
+.authentication-wrapper .authentication-inner .form-floating-outline .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/*.authentication-wrapper .authentication-inner .form-floating-outline .invalid-feedback {*/
+/*    color: #ffb3b3;*/
+/*    font-size: 0.8rem;*/
+/*}*/
+
+.authentication-wrapper .authentication-inner .form-floating-outline > label {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.authentication-wrapper .authentication-inner .form-floating-outline .form-control:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.authentication-wrapper .authentication-inner .form-floating-outline:has(.form-control:focus) {
+    border-color: rgba(255, 255, 255, 0.7);
+}
