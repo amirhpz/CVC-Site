@@ -26,20 +26,20 @@ class EnsureCvcInboundCmsAccessSeeder extends Seeder
 
         $items = [
             [
-                'id' => 11,
+                'id' => 24,
                 'slug' => 'contactmessage',
                 'title' => 'contactmessage',
                 'label' => 'پیام‌های تماس',
                 'controller' => 'ContactMessageController',
-                'priority' => 11,
+                'priority' => 24,
             ],
             [
-                'id' => 12,
+                'id' => 25,
                 'slug' => 'careerapplication',
                 'title' => 'careerapplication',
                 'label' => 'درخواست‌های همکاری',
                 'controller' => 'CareerApplicationController',
-                'priority' => 12,
+                'priority' => 25,
             ],
         ];
 
@@ -90,4 +90,3 @@ class EnsureCvcInboundCmsAccessSeeder extends Seeder
         }
     }
 }
-

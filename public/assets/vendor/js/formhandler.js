@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const originalHtml = $btn.html();
         const url = $form.attr('action');
         const id = $form.data('id') || '';
-        const modalEl = document.getElementById('showModal' + id);
+        const modalEl = document.getElementById('editModal') || document.getElementById('showModal' + id);
         const modal = modalEl ? (bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl)) : null;
 
         $btn.prop('disabled', true)

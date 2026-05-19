@@ -13,42 +13,6 @@ use Illuminate\View\View;
 class CvcPageContentController extends Controller
 {
     private const PAGES = [
-        'home' => [
-            'slug' => 'cvc-home',
-            'permission' => 'cvchomecontent',
-            'title' => 'CMS صفحه خانه',
-            'public_route' => 'cvc.home',
-            'summary_label' => 'پیام اصلی صفحه خانه',
-            'body_label' => 'متن تکمیلی معرفی شرکت',
-            'help' => 'این محتوا بالای صفحه خانه نمایش داده می شود و برای پیام اصلی برند استفاده می شود.',
-        ],
-        'home3' => [
-            'slug' => 'cvc-home3',
-            'permission' => 'cvchome3content',
-            'title' => 'CMS صفحه خانه نسخه 3',
-            'public_route' => 'cvc.home3',
-            'summary_label' => 'پیام اصلی نسخه جایگزین خانه',
-            'body_label' => 'متن تکمیلی نسخه جایگزین',
-            'help' => 'این صفحه یک نسخه جایگزین خانه است. فقط در صورت استفاده عمومی آن را فعال نگه دارید.',
-        ],
-        'about' => [
-            'slug' => 'cvc-about',
-            'permission' => 'cvcaboutcontent',
-            'title' => 'CMS صفحه درباره ما',
-            'public_route' => 'cvc.about',
-            'summary_label' => 'خلاصه معرفی شرکت',
-            'body_label' => 'توضیح کامل درباره ماموریت و ارزش ها',
-            'help' => 'این محتوا باید درباره شرکت، ماموریت، مدل سرمایه گذاری و ارزش های CVC باشد.',
-        ],
-        'contact' => [
-            'slug' => 'cvc-contact',
-            'permission' => 'cvccontactcontent',
-            'title' => 'CMS صفحه تماس با ما',
-            'public_route' => 'cvc.contact',
-            'summary_label' => 'متن راهنمای تماس',
-            'body_label' => 'اطلاعات تکمیلی تماس یا ساعات پاسخگویی',
-            'help' => 'این محتوا بالای فرم تماس نمایش داده می شود. پیام را کوتاه و عملیاتی نگه دارید.',
-        ],
         'career' => [
             'slug' => 'cvc-career',
             'permission' => 'cvccareercontent',
@@ -60,10 +24,6 @@ class CvcPageContentController extends Controller
         ],
     ];
 
-    public function home(): View { return $this->renderPage('home', 'panel.cvc-home-content'); }
-    public function home3(): View { return $this->renderPage('home3', 'panel.cvc-home3-content'); }
-    public function about(): View { return $this->renderPage('about', 'panel.cvc-about-content'); }
-    public function contact(): View { return $this->renderPage('contact', 'panel.cvc-contact-content'); }
     public function career(): View { return $this->renderPage('career', 'panel.cvc-career-content'); }
 
     public function update(Request $request, string $pageKey): RedirectResponse

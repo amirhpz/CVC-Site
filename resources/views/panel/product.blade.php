@@ -4,6 +4,21 @@
 
 @section('style')
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/rtl/dataTables.dataTables.min.css') }}"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <style>
+        .portfolio-upload-box {
+            height: 100%;
+            padding: 14px;
+            border: 1px dashed #cbd5e1;
+            border-radius: 12px;
+            background: #f8fafc;
+        }
+
+        .portfolio-upload-box .form-label {
+            font-weight: 700;
+            color: #334155;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -63,7 +78,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="addform" data-type="create" method="POST" action="{{ route('product.store') }}">
+                    <form id="addform" data-type="create" method="POST" action="{{ route('product.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="row g-4">
                             <div class="col-md-6">
@@ -91,9 +106,10 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-floating form-floating-outline">
-                                    <input type="text" name="cover" id="cover" class="form-control">
-                                    <label for="cover">مسیر تصویر کاور</label>
+                                <div class="portfolio-upload-box">
+                                    <label for="cover_file" class="form-label">تصویر کاور شرکت</label>
+                                    <input type="file" name="cover_file" id="cover_file" class="form-control" accept="image/*">
+                                    <small class="text-muted d-block mt-2">تصویر در کارت پورتفولیو و صفحه اصلی نمایش داده می‌شود. حداکثر ۵ مگابایت.</small>
                                 </div>
                             </div>
                             <div class="col-md-4">

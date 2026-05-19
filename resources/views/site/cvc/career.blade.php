@@ -1090,7 +1090,9 @@
         // Handle file upload name
         function handleFileSelect(input, targetId) {
             const fileName = input.files.length ? input.files[0].name : '';
-            document.getElementById(targetId).textContent = fileName;
+            const target = document.getElementById(targetId);
+            target.textContent = fileName;
+            target.classList.toggle('show', !!fileName);
         }
 
         // Add Education Item
@@ -1214,8 +1216,14 @@
             button.closest('.dynamic-item').remove();
         }
 
+        document.getElementById('applicationForm')?.addEventListener('submit', function () {
+            const btn = document.getElementById('submitBtn');
+            if (!btn) return;
+            btn.disabled = true;
+            btn.textContent = 'در حال ارسال...';
+        });
+
     </script>
 
 @endsection
-
 

@@ -26,14 +26,6 @@ class EnsureCvcSectionCmsAccessSeeder extends Seeder
 
         $items = [
             [
-                'id' => 13,
-                'slug' => 'cvcdomainscontent',
-                'title' => 'cvcdomainscontent',
-                'label' => 'CMS حوزه های سرمایه گذاری',
-                'controller' => 'CvcSectionContentController',
-                'priority' => 13,
-            ],
-            [
                 'id' => 14,
                 'slug' => 'cvcfaqcontent',
                 'title' => 'cvcfaqcontent',

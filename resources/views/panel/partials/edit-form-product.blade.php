@@ -1,4 +1,4 @@
-<form data-type="update" data-id="{{ $product->id }}" class="row g-4 mb-0" method="POST" action="{{ route('product.update', $product->id) }}">
+<form data-type="update" data-id="{{ $product->id }}" class="row g-4 mb-0" method="POST" action="{{ route('product.update', $product->id) }}" enctype="multipart/form-data">
     @csrf
     @method('PATCH')
 
@@ -27,9 +27,15 @@
         </div>
     </div>
     <div class="col-md-6">
-        <div class="form-floating form-floating-outline">
-            <input type="text" name="cover" id="cover_{{ $product->id }}" class="form-control" value="{{ $product->cover }}">
-            <label for="cover_{{ $product->id }}">مسیر تصویر کاور</label>
+        <div class="portfolio-upload-box">
+            <label for="cover_file_{{ $product->id }}" class="form-label">تصویر کاور جدید</label>
+            <input type="file" name="cover_file" id="cover_file_{{ $product->id }}" class="form-control" accept="image/*">
+            <input type="hidden" name="cover" value="{{ $product->cover }}">
+            @if($product->cover)
+                <small class="text-muted d-block mt-2">تصویر فعلی: {{ $product->cover }}</small>
+            @else
+                <small class="text-muted d-block mt-2">هنوز تصویری ثبت نشده است.</small>
+            @endif
         </div>
     </div>
     <div class="col-md-4">

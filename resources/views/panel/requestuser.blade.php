@@ -98,7 +98,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="بستن"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="addform" data-type="create" method="POST" class="row g-4 mb-4" action="{{ route('emploee.store') }}">
+                    <form id="addform" data-type="create" method="POST" class="row g-4 mb-4" action="{{ route('employee.store') }}">
                         {{csrf_field()}}
                         <div class="col-12 col-md-4">
                             <div class="form-floating form-floating-outline">
@@ -330,3 +330,4 @@
         });
     </script>
 @endsection
+

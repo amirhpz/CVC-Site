@@ -7,14 +7,9 @@
         $submenuRouteMap = [
             'contactmessage' => route('contact-message.index'),
             'careerapplication' => route('career-application.index'),
-            'cvcdomainscontent' => route('panel.cvc-content.domains'),
             'cvcfaqcontent' => route('panel.cvc-content.faq'),
             'cvcinvestmentcontent' => route('panel.cvc-content.investment'),
             'cvcinvestmentprocesscontent' => route('panel.cvc-content.investment-process'),
-            'cvchomecontent' => route('panel.cvc-page-content.home'),
-            'cvchome3content' => route('panel.cvc-page-content.home3'),
-            'cvcaboutcontent' => route('panel.cvc-page-content.about'),
-            'cvccontactcontent' => route('panel.cvc-page-content.contact'),
             'cvccareercontent' => route('panel.cvc-page-content.career'),
         ];
     @endphp

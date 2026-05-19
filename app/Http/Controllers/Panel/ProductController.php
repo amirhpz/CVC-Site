@@ -16,6 +16,8 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
+        Gate::authorize('can-access', ['product', 'view']);
+
         {
             $thispage       = [
                 'title'   => 'مدیریت پورتفولیو',
@@ -103,6 +105,7 @@ class ProductController extends Controller
             'en_title' => 'nullable|string|max:255',
             'sub_title' => 'nullable|string|max:255',
             'cover' => 'nullable|string|max:500',
+            'cover_file' => 'nullable|image|max:5120',
             'priority' => 'nullable|integer|min:0',
             'description' => 'nullable|string',
             'full_description' => 'nullable|string',
@@ -127,7 +130,9 @@ class ProductController extends Controller
             $product->sub_title = $validated['sub_title'] ?? null;
             $product->slug = $slug;
 
-            $product->cover = $validated['cover'] ?? null;
+            $product->cover = $request->hasFile('cover_file')
+                ? $request->file('cover_file')->store('portfolio', 'public')
+                : ($validated['cover'] ?? null);
             $product->priority = $validated['priority'] ?? null;
             $product->price = '0';
             $product->product_type = 'portfolio';
@@ -196,6 +201,7 @@ class ProductController extends Controller
             'en_title' => 'nullable|string|max:255',
             'sub_title' => 'nullable|string|max:255',
             'cover' => 'nullable|string|max:500',
+            'cover_file' => 'nullable|image|max:5120',
             'priority' => 'nullable|integer|min:0',
             'description' => 'nullable|string',
             'full_description' => 'nullable|string',
@@ -206,7 +212,9 @@ class ProductController extends Controller
         $product->title = $validated['title'];
         $product->en_title = $validated['en_title'] ?? null;
         $product->sub_title = $validated['sub_title'] ?? null;
-        $product->cover = $validated['cover'] ?? null;
+        $product->cover = $request->hasFile('cover_file')
+            ? $request->file('cover_file')->store('portfolio', 'public')
+            : ($validated['cover'] ?? $product->cover);
         $product->priority = $validated['priority'] ?? null;
         $product->description = $validated['description'] ?? null;
         $product->full_description = $validated['full_description'] ?? null;

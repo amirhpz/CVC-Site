@@ -13,17 +13,6 @@ use Illuminate\View\View;
 class CvcSectionContentController extends Controller
 {
     private const SECTIONS = [
-        'domains' => [
-            'slug' => 'cvc-domains',
-            'section' => 'domain',
-            'permission' => 'cvcdomainscontent',
-            'title' => 'مدیریت صفحه حوزه های سرمایه گذاری',
-            'public_route' => 'cvc.domains',
-            'item_title_label' => 'نام حوزه سرمایه گذاری',
-            'item_summary_label' => 'توضیح کوتاه حوزه',
-            'item_body_label' => 'جزئیات معیارهای سرمایه گذاری',
-            'help' => 'هر آیتم یک حوزه سرمایه گذاری قابل نمایش در صفحه حوزه ها است.',
-        ],
         'faq' => [
             'slug' => 'cvc-faq',
             'section' => 'faq',
@@ -58,11 +47,6 @@ class CvcSectionContentController extends Controller
             'help' => 'هر آیتم یک مرحله یا نکته در فرآیند سرمایه گذاری است.',
         ],
     ];
-
-    public function domains(): View
-    {
-        return $this->renderSection('domains', 'panel.cvc-domains-content');
-    }
 
     public function faq(): View
     {

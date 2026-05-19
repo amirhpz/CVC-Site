@@ -25,10 +25,6 @@ class EnsureCvcPageCmsAccessSeeder extends Seeder
         }
 
         $items = [
-            ['id' => 17, 'slug' => 'cvchomecontent', 'title' => 'cvchomecontent', 'label' => 'CMS صفحه خانه', 'priority' => 17],
-            ['id' => 18, 'slug' => 'cvchome3content', 'title' => 'cvchome3content', 'label' => 'CMS صفحه خانه 3', 'priority' => 18],
-            ['id' => 19, 'slug' => 'cvcaboutcontent', 'title' => 'cvcaboutcontent', 'label' => 'CMS صفحه درباره ما', 'priority' => 19],
-            ['id' => 20, 'slug' => 'cvccontactcontent', 'title' => 'cvccontactcontent', 'label' => 'CMS صفحه تماس با ما', 'priority' => 20],
             ['id' => 21, 'slug' => 'cvccareercontent', 'title' => 'cvccareercontent', 'label' => 'CMS صفحه همکاری', 'priority' => 21],
         ];
 

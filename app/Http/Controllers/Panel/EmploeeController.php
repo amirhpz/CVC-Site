@@ -14,7 +14,7 @@ class EmploeeController extends Controller
 {
     public function index(Request $request)
     {
-        Gate::authorize('can-access', ['emploee', 'view']);
+        Gate::authorize('can-access', ['employee', 'view']);
 
         $thispage       = [
             'title'   => 'مدیریت تیم',
@@ -67,16 +67,16 @@ class EmploeeController extends Controller
 
                     $actionBtn = '';
 
-                    if (auth()->user()->can('can-access', ['emploee', 'edit'])) {
+                    if (auth()->user()->can('can-access', ['employee', 'edit'])) {
                         $actionBtn .= '<button type="button"
                         class="'.$base.' btn-outline-primary edit-btn"
                         data-id="'.$data->id.'"
-                        data-url="'.route('emploee.edit', $data->id).'">
+                        data-url="'.route('employee.edit', $data->id).'">
                         <i class="mdi mdi-pencil-outline fs-5"></i>
                     </button>';
                     }
 
-                    if (auth()->user()->can('can-access', ['emploee', 'delete'])) {
+                    if (auth()->user()->can('can-access', ['employee', 'delete'])) {
                         $actionBtn .= '<button type="button"
                         class="'.$base.' btn-outline-danger delete-btn"
                         data-id="'.$data->id.'">
@@ -93,13 +93,13 @@ class EmploeeController extends Controller
                 ->rawColumns(['action' , 'image'])
                 ->make(true);
         }
-        return view('panel.emploee')->with(compact(['thispage']));
+        return view('panel.employee')->with(compact(['thispage']));
 
     }
 
     public function store(Request $request)
     {
-        Gate::authorize('can-access', ['emploee', 'insert']);
+        Gate::authorize('can-access', ['employee', 'insert']);
 
         $validated = $request->validate([
             'fullname' => 'required|string|max:255',
@@ -107,6 +107,7 @@ class EmploeeController extends Controller
             'phone' => 'nullable|string|max:50',
             'instagram' => 'nullable|string|max:500',
             'image' => 'nullable|string|max:500',
+            'image_file' => 'nullable|image|max:5120',
             'priority' => 'nullable|integer|min:0',
             'description' => 'nullable|string',
             'status' => 'required|in:0,4',
@@ -122,7 +123,9 @@ class EmploeeController extends Controller
             $emploees->phone       = $validated['phone'] ?? null;
             $emploees->priority    = $validated['priority'] ?? ((int) Emploee::max('priority') + 1);
             $emploees->instagram   = $validated['instagram'] ?? null;
-            $emploees->image       = $validated['image'] ?? null;
+            $emploees->image       = $request->hasFile('image_file')
+                ? $request->file('image_file')->store('team', 'public')
+                : ($validated['image'] ?? null);
             $emploees->status      = (int) $validated['status'];
             $emploees->description = $validated['description'] ?? null;
             $result       = $emploees->save();
@@ -155,27 +158,27 @@ class EmploeeController extends Controller
 
     public function create()
     {
-        return redirect()->route('emploee.index');
+        return redirect()->route('employee.index');
     }
 
     public function show($id)
     {
-        return redirect()->route('emploee.edit', $id);
+        return redirect()->route('employee.edit', $id);
     }
 
     public function edit($id)
     {
-        Gate::authorize('can-access', ['emploee', 'edit']);
+        Gate::authorize('can-access', ['employee', 'edit']);
 
         $emploee = Emploee::findOrFail($id);
 
-        return view('panel.partials.edit-form-emploee', compact('emploee'));
+        return view('panel.partials.edit-form-employee', compact('emploee'));
 
     }
 
     public function update(Request $request , $id)
     {
-        Gate::authorize('can-access', ['emploee', 'edit']);
+        Gate::authorize('can-access', ['employee', 'edit']);
 
         $validated = $request->validate([
             'fullname' => 'required|string|max:255',
@@ -183,6 +186,7 @@ class EmploeeController extends Controller
             'phone' => 'nullable|string|max:50',
             'instagram' => 'nullable|string|max:500',
             'image' => 'nullable|string|max:500',
+            'image_file' => 'nullable|image|max:5120',
             'priority' => 'nullable|integer|min:0',
             'description' => 'nullable|string',
             'status' => 'required|in:0,4',
@@ -198,7 +202,9 @@ class EmploeeController extends Controller
             $emploees->instagram   = $validated['instagram'] ?? null;
             $emploees->status      = (int) $validated['status'];
             $emploees->description = $validated['description'] ?? null;
-            $emploees->image       = $validated['image'] ?? null;
+            $emploees->image       = $request->hasFile('image_file')
+                ? $request->file('image_file')->store('team', 'public')
+                : ($validated['image'] ?? $emploees->image);
             $result = $emploees->update();
                 if ($result == true) {
                     $success = true;
@@ -227,7 +233,7 @@ class EmploeeController extends Controller
 
     public function destroy($id)
     {
-        Gate::authorize('can-access', ['emploee', 'delete']);
+        Gate::authorize('can-access', ['employee', 'delete']);
 
         try{
             $emploees = Emploee::findorfail($id);
@@ -274,3 +280,5 @@ class EmploeeController extends Controller
         return $slug;
     }
 }
+
+
