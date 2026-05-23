@@ -3,9 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'صندوق سرمایه‌گذاری خطرپذیر شرکتی - Metro Fund')</title>
+    <title>@yield('title', 'توسعه دانش بنیان سینا')</title>
     @yield('meta')
     <style>
+        :root {
+            --cvc-primary: #57C7B6;
+            --cvc-primary-hover: #43B3A2;
+            --cvc-primary-soft: #DDF7F2;
+            --cvc-accent: #8FE3D5;
+            --cvc-bg: #F7FCFB;
+            --cvc-text: #24423D;
+            --cvc-border: #D7ECE7;
+            --cvc-surface: #FFFFFF;
+            --cvc-muted: #5F7B76;
+            --cvc-hero: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
+            --cvc-ink: linear-gradient(135deg, #24423D 0%, #315E57 100%);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -15,8 +29,8 @@
         body {
             font-family: 'Dana', Verdana, sans-serif;
             line-height: 1.8;
-            color: #333;
-            background: #f8f9fa;
+            color: var(--cvc-text);
+            background: var(--cvc-bg);
         }
 
         .container {
@@ -27,8 +41,9 @@
 
         /* Header */
         header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 18px rgba(36, 66, 61, 0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -44,7 +59,7 @@
         .logo {
             font-size: 24px;
             font-weight: bold;
-            color: #2563eb;
+            color: var(--cvc-text);
             display: flex;
             align-items: center;
             gap: 10px;
@@ -53,7 +68,7 @@
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--cvc-hero);
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -70,13 +85,13 @@
 
         nav a {
             text-decoration: none;
-            color: #555;
+            color: var(--cvc-muted);
             font-weight: 500;
             transition: color 0.3s;
         }
 
         nav a:hover {
-            color: #2563eb;
+            color: var(--cvc-primary-hover);
         }
 
         /* Mobile Menu Toggle */
@@ -91,7 +106,7 @@
         .mobile-menu-toggle span {
             width: 28px;
             height: 3px;
-            background: #2563eb;
+            background: var(--cvc-primary);
             border-radius: 3px;
             transition: all 0.3s ease;
         }
@@ -115,8 +130,8 @@
             top: 80px;
             left: 0;
             right: 0;
-            background: white;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 18px 40px rgba(36, 66, 61, 0.10);
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease;
@@ -132,27 +147,27 @@
         }
 
         .mobile-menu li {
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid var(--cvc-border);
         }
 
         .mobile-menu a {
             display: block;
             padding: 15px 30px;
-            color: #555;
+            color: var(--cvc-muted);
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s;
         }
 
         .mobile-menu a:hover {
-            background: #f8f9fa;
-            color: #2563eb;
+            background: var(--cvc-primary-soft);
+            color: var(--cvc-primary-hover);
             padding-right: 40px;
         }
 
         /* Breadcrumb */
         .breadcrumb-nav {
-            background: #f8f9fa;
+            background: rgba(221, 247, 242, 0.55);
             padding: 1rem 0;
         }
 
@@ -168,11 +183,11 @@
         .breadcrumb li:not(:last-child)::after {
             content: '/';
             margin-right: 0.5rem;
-            color: #6c757d;
+            color: var(--cvc-muted);
         }
 
         .breadcrumb a {
-            color: #0066cc;
+            color: var(--cvc-primary-hover);
             text-decoration: none;
         }
 
@@ -181,13 +196,13 @@
         }
 
         .breadcrumb .active {
-            color: #6c757d;
+            color: var(--cvc-muted);
         }
 
         .section-title {
             font-size: 36px;
             margin-bottom: 20px;
-            color: #2563eb;
+            color: var(--cvc-text);
             position: relative;
             padding-bottom: 15px;
         }
@@ -199,30 +214,30 @@
             right: 0;
             width: 80px;
             height: 4px;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            background: var(--cvc-hero);
             border-radius: 2px;
         }
 
         .btn {
             display: inline-block;
             padding: 15px 40px;
-            background: white;
-            color: #667eea;
+            background: var(--cvc-surface);
+            color: var(--cvc-primary-hover);
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
             transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(36, 66, 61, 0.10);
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 14px 34px rgba(36, 66, 61, 0.16);
         }
 
         /* Footer */
         footer {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: var(--cvc-ink);
             color: white;
             padding: 60px 0 30px;
         }
@@ -336,8 +351,8 @@
     <div class="container">
         <nav>
             <div class="logo">
-                <div class="logo-icon">MF</div>
-                <span>Metro Fund</span>
+                <div class="logo-icon">س</div>
+                <span>توسعه دانش بنیان سینا</span>
             </div>
 
             <!-- Desktop Menu -->
@@ -384,7 +399,7 @@
         <div class="footer-content">
 
             <div class="footer-about">
-                <h3>Metro Fund</h3>
+                <h3>توسعه دانش بنیان سینا</h3>
                 <p>
                     صندوق سرمایه‌گذاری خطرپذیر شرکتی با تمرکز بر نوآوری،
                     فناوری‌های پیشرو و رشد پایدار کسب‌وکارها.
@@ -423,7 +438,7 @@
         </div>
 
         <div class="footer-bottom">
-            © 1405 تمامی حقوق متعلق به Metro Fund می‌باشد.
+            © 1405 تمامی حقوق متعلق به توسعه دانش بنیان سینا می‌باشد.
         </div>
 
     </div>

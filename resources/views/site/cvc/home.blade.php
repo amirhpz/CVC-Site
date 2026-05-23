@@ -1,6 +1,6 @@
-@extends('site.layouts.base2')
+﻿@extends('site.layouts.base2')
 
-@section('title', 'صندوق سرمایه‌گذاری خطرپذیر شرکتی - Metro Fund')
+@section('title', 'صندوق سرمایه‌گذاری خطرپذیر شرکتی - توسعه دانش بنیان سینا')
 
 @section('styles')
     <style>
@@ -8,7 +8,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             color: white;
             padding: 80px 0;
             position: relative;
@@ -90,7 +90,7 @@
         }
 
         .about-image {
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-accent) 100%);
             border-radius: 20px;
             padding: 40px;
             min-height: 300px;
@@ -106,7 +106,7 @@
         /* Portfolio Section */
         .portfolio {
             padding: 80px 0;
-            background: #f8f9fa;
+            background: var(--cvc-bg);
         }
 
         .portfolio-grid {
@@ -131,7 +131,7 @@
 
         .portfolio-image {
             height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -146,18 +146,18 @@
         .portfolio-content h3 {
             font-size: 20px;
             margin-bottom: 10px;
-            color: #333;
+            color: var(--cvc-text);
         }
 
         .portfolio-content p {
-            color: #666;
+            color: var(--cvc-muted);
             font-size: 14px;
         }
 
         /* Services Section */
         .services {
             padding: 80px 0;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, var(--cvc-text) 0%, var(--cvc-primary-hover) 100%);
             color: white;
         }
 
@@ -219,7 +219,7 @@
         }
 
         .area-item {
-            background: #f8f9fa;
+            background: var(--cvc-bg);
             border-radius: 15px;
             padding: 30px 20px;
             text-align: center;
@@ -229,14 +229,14 @@
 
         .area-item:hover {
             background: white;
-            border-color: #667eea;
+            border-color: var(--cvc-primary);
             box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
         }
 
         .area-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -247,13 +247,13 @@
 
         .area-item h4 {
             font-size: 14px;
-            color: #333;
+            color: var(--cvc-text);
         }
 
         /* Partners Section */
         .partners {
             padding: 80px 0;
-            background: #f8f9fa;
+            background: var(--cvc-bg);
         }
 
         .partners-grid {
@@ -283,7 +283,7 @@
         .partner-placeholder {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -307,7 +307,7 @@
         }
 
         .team-member {
-            background: #f8f9fa;
+            background: var(--cvc-bg);
             border-radius: 15px;
             overflow: hidden;
             transition: transform 0.3s;
@@ -320,7 +320,7 @@
 
         .team-photo {
             height: 300px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -336,17 +336,17 @@
         .team-info h3 {
             font-size: 22px;
             margin-bottom: 5px;
-            color: #333;
+            color: var(--cvc-text);
         }
 
         .team-info .position {
-            color: #667eea;
+            color: var(--cvc-primary);
             font-weight: 500;
             margin-bottom: 10px;
         }
 
         .team-info p {
-            color: #666;
+            color: var(--cvc-muted);
             font-size: 14px;
             line-height: 1.6;
         }
@@ -354,7 +354,7 @@
         /* News Section */
         .news {
             padding: 80px 0;
-            background: #f8f9fa;
+            background: var(--cvc-bg);
         }
 
         .news-grid {
@@ -391,7 +391,7 @@
         }
 
         .news-date {
-            color: #667eea;
+            color: var(--cvc-primary);
             font-size: 13px;
             font-weight: 500;
             margin-bottom: 10px;
@@ -400,11 +400,11 @@
         .news-content h3 {
             font-size: 18px;
             margin-bottom: 10px;
-            color: #333;
+            color: var(--cvc-text);
         }
 
         .news-content p {
-            color: #666;
+            color: var(--cvc-muted);
             font-size: 14px;
             line-height: 1.6;
         }
@@ -449,7 +449,7 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>سرمایه‌گذاری در آینده نوآوری</h1>
-                    <p>ما در Metro Fund به دنبال استارت‌آپ‌ها و کسب‌وکارهای نوآور هستیم که می‌خواهند دنیا را تغییر دهند.
+                    <p>ما در توسعه دانش بنیان سینا به دنبال استارت‌آپ‌ها و کسب‌وکارهای نوآور هستیم که می‌خواهند دنیا را تغییر دهند.
                         با سرمایه‌گذاری هوشمند و مشاوره تخصصی، رویاهای شما را به واقعیت تبدیل می‌کنیم.</p>
                     <a href="#contact" class="btn">با ما شروع کنید</a>
                 </div>
@@ -468,8 +468,8 @@
                     🌱
                 </div>
                 <div class="about-text">
-                    <h2 class="section-title">درباره Metro Fund</h2>
-                    <p>صندوق سرمایه‌گذاری خطرپذیر Metro Fund با هدف حمایت از استارت‌آپ‌های نوآور و کسب‌وکارهای فناور در
+                    <h2 class="section-title">درباره توسعه دانش بنیان سینا</h2>
+                    <p>صندوق سرمایه‌گذاری خطرپذیر توسعه دانش بنیان سینا با هدف حمایت از استارت‌آپ‌های نوآور و کسب‌وکارهای فناور در
                         مراحل اولیه تا رشد تأسیس شده است. ما با تیمی متشکل از متخصصان باتجربه در حوزه‌های مختلف
                         کسب‌وکار،
                         فناوری و سرمایه‌گذاری، فراتر از تأمین سرمایه، مشاوره استراتژیک و دسترسی به شبکه گسترده‌ای از
@@ -696,13 +696,13 @@
 
     <!-- CTA Section -->
     <section
-        style="padding: 80px 0; background: linear-gradient(135deg,#667eea,#764ba2); color:white; text-align:center;">
+        style="padding: 80px 0; background: linear-gradient(135deg,var(--cvc-primary),var(--cvc-primary-hover)); color:white; text-align:center;">
         <div class="container">
             <h2 style="font-size:36px; margin-bottom:20px;">آماده جذب سرمایه هستید؟</h2>
             <p style="opacity:.9; margin-bottom:30px;">
                 طرح کسب‌وکار خود را برای ما ارسال کنید و وارد مسیر رشد حرفه‌ای شوید.
             </p>
-            <a href="#contact" class="btn" style="background:white; color:#667eea;">
+            <a href="#contact" class="btn" style="background:white; color:var(--cvc-primary);">
                 ارسال درخواست سرمایه‌گذاری
             </a>
         </div>
@@ -722,7 +722,7 @@
                     <p>ایمیل: info@metrofuntest.ir</p>
                 </div>
 
-                <div style="background:#f8f9fa; padding:30px; border-radius:15px;">
+                <div style="background:var(--cvc-bg); padding:30px; border-radius:15px;">
                     <form>
                         <div style="margin-bottom:15px;">
                             <input type="text" placeholder="نام و نام خانوادگی"
@@ -737,7 +737,7 @@
                                       style="width:100%; padding:12px; border-radius:8px; border:1px solid #ddd;"></textarea>
                         </div>
                         <button type="submit"
-                                style="background:#667eea; color:white; padding:12px 25px; border:none; border-radius:8px; cursor:pointer;">
+                                style="background:var(--cvc-primary); color:white; padding:12px 25px; border:none; border-radius:8px; cursor:pointer;">
                             ارسال پیام
                         </button>
                     </form>
@@ -748,3 +748,4 @@
     </section>
 
 @endsection
+

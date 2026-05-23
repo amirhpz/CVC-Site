@@ -1,6 +1,6 @@
-@extends('site.layouts.base2')
+﻿@extends('site.layouts.base2')
 
-@section('title', 'اخبار و مقالات - MSTID Fund')
+@section('title', 'اخبار و مقالات - توسعه دانش بنیان سینا')
 
 @section('meta')
     <meta name="description" content="آخرین اخبار، تحلیل‌ها و مقالات سرمایه‌گذاری خطرپذیر، نوآوری و اکوسیستم استارتاپی.">
@@ -11,7 +11,7 @@
         .news-page {
             padding: 44px 0 76px;
             background:
-                linear-gradient(180deg, #f6f9fc 0%, #ffffff 38%),
+                linear-gradient(180deg, var(--cvc-bg) 0%, #ffffff 38%),
                 #ffffff;
         }
 
@@ -28,7 +28,7 @@
         }
 
         .eyebrow {
-            color: #0f766e;
+            color: var(--cvc-primary-hover);
             font-weight: 800;
             font-size: 14px;
             margin-bottom: 12px;
@@ -37,12 +37,12 @@
         .news-intro h1 {
             font-size: clamp(30px, 4vw, 48px);
             line-height: 1.35;
-            color: #102235;
+            color: var(--cvc-text);
             margin-bottom: 14px;
         }
 
         .news-intro p {
-            color: #526173;
+            color: var(--cvc-muted);
             max-width: 680px;
             font-size: 17px;
             line-height: 2;
@@ -53,7 +53,7 @@
             border-radius: 26px;
             overflow: hidden;
             position: relative;
-            background: linear-gradient(135deg, #0f4c81, #0f766e);
+            background: linear-gradient(135deg, var(--cvc-text), var(--cvc-primary-hover));
             color: #fff;
             box-shadow: 0 18px 50px rgba(15, 35, 53, 0.16);
         }
@@ -126,7 +126,7 @@
 
         .news-card {
             background: #fff;
-            border: 1px solid #e6edf4;
+            border: 1px solid var(--cvc-border);
             border-radius: 18px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(15, 35, 53, 0.07);
@@ -139,7 +139,7 @@
 
         .news-thumb {
             aspect-ratio: 16 / 10;
-            background: linear-gradient(135deg, #0f4c81, #0f766e);
+            background: linear-gradient(135deg, var(--cvc-text), var(--cvc-primary-hover));
             overflow: hidden;
         }
 
@@ -158,20 +158,20 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            color: #6b7a8c;
+            color: var(--cvc-muted);
             font-size: 12px;
             margin-bottom: 10px;
         }
 
         .news-card h3 {
-            color: #14283b;
+            color: var(--cvc-text);
             font-size: 19px;
             line-height: 1.65;
             margin-bottom: 10px;
         }
 
         .news-card p {
-            color: #526173;
+            color: var(--cvc-muted);
             font-size: 14px;
             line-height: 1.9;
             margin-bottom: 14px;
@@ -186,16 +186,16 @@
         .tag {
             display: inline-flex;
             border-radius: 999px;
-            background: #eef8f6;
-            color: #0f766e;
-            border: 1px solid #d7efea;
+            background: var(--cvc-primary-soft);
+            color: var(--cvc-primary-hover);
+            border: 1px solid var(--cvc-border);
             padding: 5px 10px;
             font-size: 12px;
         }
 
         .read-more {
             display: inline-flex;
-            color: #0f4c81;
+            color: var(--cvc-text);
             font-weight: 800;
             font-size: 14px;
             margin-top: 14px;
@@ -203,7 +203,7 @@
 
         .sidebar-card {
             background: #fff;
-            border: 1px solid #e6edf4;
+            border: 1px solid var(--cvc-border);
             border-radius: 18px;
             padding: 20px;
             margin-bottom: 18px;
@@ -211,7 +211,7 @@
         }
 
         .sidebar-card h3 {
-            color: #102235;
+            color: var(--cvc-text);
             font-size: 18px;
             margin-bottom: 14px;
         }
@@ -221,7 +221,7 @@
             grid-template-columns: 72px 1fr;
             gap: 12px;
             padding: 12px 0;
-            border-bottom: 1px solid #eef2f7;
+            border-bottom: 1px solid var(--cvc-border);
             text-decoration: none;
             color: inherit;
         }
@@ -235,7 +235,7 @@
             width: 72px;
             height: 56px;
             border-radius: 12px;
-            background: linear-gradient(135deg, #0f4c81, #0f766e);
+            background: linear-gradient(135deg, var(--cvc-text), var(--cvc-primary-hover));
             overflow: hidden;
         }
 
@@ -249,11 +249,11 @@
             font-size: 13px;
             line-height: 1.75;
             font-weight: 800;
-            color: #14283b;
+            color: var(--cvc-text);
         }
 
         .popular-date {
-            color: #7b8794;
+            color: var(--cvc-muted);
             font-size: 12px;
             margin-bottom: 4px;
         }
@@ -263,8 +263,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 12px;
-            background: #f8fafc;
-            border: 1px solid #e6edf4;
+            background: var(--cvc-bg);
+            border: 1px solid var(--cvc-border);
             border-radius: 12px;
             margin-bottom: 9px;
             color: #334155;
@@ -272,7 +272,7 @@
         }
 
         .category-count {
-            color: #0f766e;
+            color: var(--cvc-primary-hover);
             font-weight: 800;
         }
 
@@ -281,7 +281,7 @@
             border: 1px dashed #cbd5e1;
             border-radius: 18px;
             padding: 24px;
-            color: #64748b;
+            color: var(--cvc-muted);
         }
 
         @media (max-width: 992px) {
@@ -423,3 +423,4 @@
         </div>
     </section>
 @endsection
+

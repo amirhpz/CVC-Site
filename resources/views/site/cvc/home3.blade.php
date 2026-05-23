@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صندوق سرمایه‌گذاری خطرپذیر شرکتی - Metro Fund</title>
+    <title>صندوق سرمایه‌گذاری خطرپذیر شرکتی - توسعه دانش بنیان سینا</title>
     <style>
         * {
             margin: 0;
@@ -14,8 +14,8 @@
         body {
             font-family: 'Dana', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.8;
-            color: #333;
-            background: #f8f9fa;
+            color: var(--cvc-text);
+            background: var(--cvc-bg);
         }
 
         .container {
@@ -43,7 +43,7 @@
         .logo {
             font-size: 24px;
             font-weight: bold;
-            color: #2563eb;
+            color: var(--cvc-primary-hover);
             display: flex;
             align-items: center;
             gap: 10px;
@@ -52,7 +52,7 @@
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -69,18 +69,18 @@
 
         nav a {
             text-decoration: none;
-            color: #555;
+            color: var(--cvc-muted);
             font-weight: 500;
             transition: color 0.3s;
         }
 
         nav a:hover {
-            color: #2563eb;
+            color: var(--cvc-primary-hover);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             color: white;
             padding: 80px 0;
             position: relative;
@@ -152,7 +152,7 @@
             display: inline-block;
             padding: 15px 40px;
             background: white;
-            color: #667eea;
+            color: var(--cvc-primary);
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
@@ -179,7 +179,7 @@
         }
 
         .about-image {
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-accent) 100%);
             border-radius: 20px;
             padding: 40px;
             min-height: 300px;
@@ -193,7 +193,7 @@
         .section-title {
             font-size: 36px;
             margin-bottom: 20px;
-            color: #2563eb;
+            color: var(--cvc-primary-hover);
             position: relative;
             padding-bottom: 15px;
         }
@@ -205,14 +205,14 @@
             right: 0;
             width: 80px;
             height: 4px;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(90deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             border-radius: 2px;
         }
 
         /* Portfolio Section */
         .portfolio {
             padding: 80px 0;
-            background: #f8f9fa;
+            background: var(--cvc-bg);
         }
 
         .portfolio-grid {
@@ -237,7 +237,7 @@
 
         .portfolio-image {
             height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -252,18 +252,18 @@
         .portfolio-content h3 {
             font-size: 20px;
             margin-bottom: 10px;
-            color: #333;
+            color: var(--cvc-text);
         }
 
         .portfolio-content p {
-            color: #666;
+            color: var(--cvc-muted);
             font-size: 14px;
         }
 
         /* Services Section */
         .services {
             padding: 80px 0;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, var(--cvc-text) 0%, var(--cvc-primary-hover) 100%);
             color: white;
         }
 
@@ -325,7 +325,7 @@
         }
 
         .area-item {
-            background: #f8f9fa;
+            background: var(--cvc-bg);
             border-radius: 15px;
             padding: 30px 20px;
             text-align: center;
@@ -335,14 +335,14 @@
 
         .area-item:hover {
             background: white;
-            border-color: #667eea;
+            border-color: var(--cvc-primary);
             box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
         }
 
         .area-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -353,13 +353,13 @@
 
         .area-item h4 {
             font-size: 14px;
-            color: #333;
+            color: var(--cvc-text);
         }
 
         /* Partners Section */
         .partners {
             padding: 80px 0;
-            background: #f8f9fa;
+            background: var(--cvc-bg);
         }
 
         .partners-grid {
@@ -389,7 +389,7 @@
         .partner-placeholder {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -413,7 +413,7 @@
         }
 
         .team-member {
-            background: #f8f9fa;
+            background: var(--cvc-bg);
             border-radius: 15px;
             overflow: hidden;
             transition: transform 0.3s;
@@ -426,7 +426,7 @@
 
         .team-photo {
             height: 300px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -442,17 +442,17 @@
         .team-info h3 {
             font-size: 22px;
             margin-bottom: 5px;
-            color: #333;
+            color: var(--cvc-text);
         }
 
         .team-info .position {
-            color: #667eea;
+            color: var(--cvc-primary);
             font-weight: 500;
             margin-bottom: 10px;
         }
 
         .team-info p {
-            color: #666;
+            color: var(--cvc-muted);
             font-size: 14px;
             line-height: 1.6;
         }
@@ -460,7 +460,7 @@
         /* News Section */
         .news {
             padding: 80px 0;
-            background: #f8f9fa;
+            background: var(--cvc-bg);
         }
 
         .news-grid {
@@ -497,7 +497,7 @@
         }
 
         .news-date {
-            color: #667eea;
+            color: var(--cvc-primary);
             font-size: 13px;
             font-weight: 500;
             margin-bottom: 10px;
@@ -506,18 +506,18 @@
         .news-content h3 {
             font-size: 18px;
             margin-bottom: 10px;
-            color: #333;
+            color: var(--cvc-text);
         }
 
         .news-content p {
-            color: #666;
+            color: var(--cvc-muted);
             font-size: 14px;
             line-height: 1.6;
         }
 
         /* Footer */
         footer {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, var(--cvc-text) 0%, var(--cvc-primary-hover) 100%);
             color: white;
             padding: 60px 0 30px;
         }
@@ -635,7 +635,7 @@
         <nav>
             <div class="logo">
                 <div class="logo-icon">MF</div>
-                <span>Metro Fund</span>
+                <span>توسعه دانش بنیان سینا</span>
             </div>
             <ul>
                 <li><a href="#home">خانه</a></li>
@@ -656,7 +656,7 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1>سرمایه‌گذاری در آینده نوآوری</h1>
-                <p>ما در Metro Fund به دنبال استارت‌آپ‌ها و کسب‌وکارهای نوآور هستیم که می‌خواهند دنیا را تغییر دهند. با سرمایه‌گذاری هوشمند و مشاوره تخصصی، رویاهای شما را به واقعیت تبدیل می‌کنیم.</p>
+                <p>ما در توسعه دانش بنیان سینا به دنبال استارت‌آپ‌ها و کسب‌وکارهای نوآور هستیم که می‌خواهند دنیا را تغییر دهند. با سرمایه‌گذاری هوشمند و مشاوره تخصصی، رویاهای شما را به واقعیت تبدیل می‌کنیم.</p>
                 <a href="#contact" class="btn">با ما شروع کنید</a>
             </div>
             <div class="hero-image">
@@ -674,8 +674,8 @@
                 🌱
             </div>
             <div class="about-text">
-                <h2 class="section-title">درباره Metro Fund</h2>
-                <p>صندوق سرمایه‌گذاری خطرپذیر Metro Fund با هدف حمایت از استارت‌آپ‌های نوآور و کسب‌وکارهای فناور در مراحل اولیه تا رشد تأسیس شده است. ما با تیمی متشکل از متخصصان باتجربه در حوزه‌های مختلف کسب‌وکار، فناوری و سرمایه‌گذاری، فراتر از تأمین سرمایه، مشاوره استراتژیک و دسترسی به شبکه گسترده‌ای از شرکا و متخصصان را ارائه می‌دهیم.</p>
+                <h2 class="section-title">درباره توسعه دانش بنیان سینا</h2>
+                <p>صندوق سرمایه‌گذاری خطرپذیر توسعه دانش بنیان سینا با هدف حمایت از استارت‌آپ‌های نوآور و کسب‌وکارهای فناور در مراحل اولیه تا رشد تأسیس شده است. ما با تیمی متشکل از متخصصان باتجربه در حوزه‌های مختلف کسب‌وکار، فناوری و سرمایه‌گذاری، فراتر از تأمین سرمایه، مشاوره استراتژیک و دسترسی به شبکه گسترده‌ای از شرکا و متخصصان را ارائه می‌دهیم.</p>
                 <p>رویکرد ما مبتنی بر شناخت عمیق بازار، ارزیابی دقیق پتانسیل رشد و همراهی بلندمدت با کارآفرینان است. ما معتقدیم که موفقیت استارت‌آپ‌ها، موفقیت ماست.</p>
             </div>
         </div>
@@ -926,7 +926,7 @@
                     <div class="news-date">20 فروردین 1405</div>
                     <h3>سرمایه‌گذاری جدید در حوزه هوش مصنوعی</h3>
                     <p>
-                        صندوق Metro Fund در یک استارت‌آپ فعال در حوزه پردازش داده و
+                        صندوق توسعه دانش بنیان سینا در یک استارت‌آپ فعال در حوزه پردازش داده و
                         هوش مصنوعی سرمایه‌گذاری جدیدی انجام داد.
                     </p>
                 </div>
@@ -938,7 +938,7 @@
                     <div class="news-date">10 فروردین 1405</div>
                     <h3>فراخوان جذب استارت‌آپ</h3>
                     <p>
-                        صندوق Metro Fund از استارت‌آپ‌های فعال در حوزه فین‌تک،
+                        صندوق توسعه دانش بنیان سینا از استارت‌آپ‌های فعال در حوزه فین‌تک،
                         سلامت دیجیتال و AI دعوت به همکاری می‌کند.
                     </p>
                 </div>
@@ -950,7 +950,7 @@
                     <div class="news-date">1 فروردین 1405</div>
                     <h3>حضور در رویداد ملی نوآوری</h3>
                     <p>
-                        تیم سرمایه‌گذاری Metro Fund در رویداد ملی نوآوری حضور یافته و با
+                        تیم سرمایه‌گذاری توسعه دانش بنیان سینا در رویداد ملی نوآوری حضور یافته و با
                         بیش از 120 تیم استارت‌آپی جلسات B2B برگزار کرد.
                     </p>
                 </div>
@@ -961,13 +961,13 @@
 </section>
 
 <!-- CTA Section -->
-<section style="padding: 80px 0; background: linear-gradient(135deg,#667eea,#764ba2); color:white; text-align:center;">
+<section style="padding: 80px 0; background: linear-gradient(135deg,var(--cvc-primary),var(--cvc-primary-hover)); color:white; text-align:center;">
     <div class="container">
         <h2 style="font-size:36px; margin-bottom:20px;">آماده جذب سرمایه هستید؟</h2>
         <p style="opacity:.9; margin-bottom:30px;">
             طرح کسب‌وکار خود را برای ما ارسال کنید و وارد مسیر رشد حرفه‌ای شوید.
         </p>
-        <a href="#contact" class="btn" style="background:white; color:#667eea;">
+        <a href="#contact" class="btn" style="background:white; color:var(--cvc-primary);">
             ارسال درخواست سرمایه‌گذاری
         </a>
     </div>
@@ -987,7 +987,7 @@
                 <p>ایمیل: info@metrofuntest.ir</p>
             </div>
 
-            <div style="background:#f8f9fa; padding:30px; border-radius:15px;">
+            <div style="background:var(--cvc-bg); padding:30px; border-radius:15px;">
                 <form>
                     <div style="margin-bottom:15px;">
                         <input type="text" placeholder="نام و نام خانوادگی"
@@ -1002,7 +1002,7 @@
                                       style="width:100%; padding:12px; border-radius:8px; border:1px solid #ddd;"></textarea>
                     </div>
                     <button type="submit"
-                            style="background:#667eea; color:white; padding:12px 25px; border:none; border-radius:8px; cursor:pointer;">
+                            style="background:var(--cvc-primary); color:white; padding:12px 25px; border:none; border-radius:8px; cursor:pointer;">
                         ارسال پیام
                     </button>
                 </form>
@@ -1019,7 +1019,7 @@
         <div class="footer-content">
 
             <div class="footer-about">
-                <h3>Metro Fund</h3>
+                <h3>توسعه دانش بنیان سینا</h3>
                 <p>
                     صندوق سرمایه‌گذاری خطرپذیر شرکتی با تمرکز بر نوآوری،
                     فناوری‌های پیشرو و رشد پایدار کسب‌وکارها.
@@ -1058,7 +1058,7 @@
         </div>
 
         <div class="footer-bottom">
-            © 1405 تمامی حقوق متعلق به Metro Fund می‌باشد.
+            © 1405 تمامی حقوق متعلق به توسعه دانش بنیان سینا می‌باشد.
         </div>
 
     </div>
@@ -1066,3 +1066,4 @@
 
 </body>
 </html>
+

@@ -1,6 +1,6 @@
-@extends('site.layouts.base2')
+﻿@extends('site.layouts.base2')
 
-@section('title', ($post->title ?? 'خبر') . ' - MSTID Fund')
+@section('title', ($post->title ?? 'خبر') . ' - توسعه دانش بنیان سینا')
 
 @php
     $coverUrl = !empty($post->cover)
@@ -57,7 +57,7 @@
 
         .article-hero {
             min-height: 320px;
-            background: linear-gradient(135deg, #0f4c81 0%, #1d8fe1 100%);
+            background: linear-gradient(135deg, var(--cvc-text) 0%, var(--cvc-primary) 100%);
             position: relative;
             display: flex;
             align-items: end;
@@ -122,7 +122,7 @@
             flex-wrap: wrap;
             gap: 14px;
             margin-bottom: 20px;
-            color: #64748b;
+            color: var(--cvc-muted);
             font-size: 14px;
         }
 
@@ -130,8 +130,8 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
+            background: var(--cvc-bg);
+            border: 1px solid var(--cvc-border);
             padding: 7px 12px;
             border-radius: 999px;
         }
@@ -139,13 +139,13 @@
         .article-content {
             font-size: 17px;
             line-height: 2.05;
-            color: #243041;
+            color: var(--cvc-text);
         }
 
         .article-content h2,
         .article-content h3,
         .article-content h4 {
-            color: #0f4c81;
+            color: var(--cvc-text);
             margin: 28px 0 14px;
             line-height: 1.45;
         }
@@ -173,7 +173,7 @@
 
         .gallery-media {
             aspect-ratio: 16 / 10;
-            background: #0f172a;
+            background: var(--cvc-text);
             border-radius: 18px;
             overflow: hidden;
         }
@@ -190,9 +190,9 @@
         .article-share,
         .article-author {
             margin-top: 22px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--cvc-border);
             border-radius: 18px;
-            background: #f8fafc;
+            background: var(--cvc-bg);
             padding: 18px 20px;
         }
 
@@ -207,7 +207,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: linear-gradient(135deg, #0f4c81, #1d8fe1);
+            background: linear-gradient(135deg, var(--cvc-text), var(--cvc-primary));
             color: #fff;
             text-decoration: none;
             padding: 12px 18px;
@@ -225,7 +225,7 @@
             width: 58px;
             height: 58px;
             border-radius: 18px;
-            background: linear-gradient(135deg, #0f4c81, #1d8fe1);
+            background: linear-gradient(135deg, var(--cvc-text), var(--cvc-primary));
             color: #fff;
             display: flex;
             align-items: center;
@@ -239,11 +239,11 @@
             font-size: 18px;
             font-weight: 800;
             margin-bottom: 4px;
-            color: #0f172a;
+            color: var(--cvc-text);
         }
 
         .author-role {
-            color: #64748b;
+            color: var(--cvc-muted);
             font-size: 14px;
         }
 
@@ -260,7 +260,7 @@
             padding: 7px 12px;
             border-radius: 999px;
             background: #eef6ff;
-            color: #0f4c81;
+            color: var(--cvc-text);
             text-decoration: none;
             font-size: 13px;
             border: 1px solid #dbeafe;
@@ -274,14 +274,14 @@
         .sidebar-card h3 {
             font-size: 18px;
             margin-bottom: 14px;
-            color: #0f4c81;
+            color: var(--cvc-text);
         }
 
         .popular-post {
             display: flex;
             gap: 12px;
             padding: 12px 0;
-            border-bottom: 1px solid #eef2f7;
+            border-bottom: 1px solid var(--cvc-border);
             text-decoration: none;
             color: inherit;
         }
@@ -295,7 +295,7 @@
             width: 76px;
             height: 56px;
             border-radius: 12px;
-            background: linear-gradient(135deg, #0f4c81, #1d8fe1);
+            background: linear-gradient(135deg, var(--cvc-text), var(--cvc-primary));
             overflow: hidden;
             flex-shrink: 0;
         }
@@ -315,7 +315,7 @@
 
         .popular-date {
             font-size: 12px;
-            color: #64748b;
+            color: var(--cvc-muted);
             margin-bottom: 4px;
         }
 
@@ -328,8 +328,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
+            background: var(--cvc-bg);
+            border: 1px solid var(--cvc-border);
             border-radius: 14px;
             padding: 11px 14px;
             color: #334155;
@@ -339,7 +339,7 @@
 
         .category-count {
             background: #fff;
-            color: #0f4c81;
+            color: var(--cvc-text);
             border: 1px solid #dbeafe;
             border-radius: 999px;
             padding: 4px 10px;
@@ -365,7 +365,7 @@
 
         .related-thumb {
             height: 160px;
-            background: linear-gradient(135deg, #0f4c81, #1d8fe1);
+            background: linear-gradient(135deg, var(--cvc-text), var(--cvc-primary));
             overflow: hidden;
         }
 
@@ -381,23 +381,23 @@
 
         .related-date {
             font-size: 12px;
-            color: #64748b;
+            color: var(--cvc-muted);
             margin-bottom: 7px;
         }
 
         .related-title {
             font-size: 15px;
             line-height: 1.75;
-            color: #0f172a;
+            color: var(--cvc-text);
             font-weight: 700;
         }
 
         .empty-state {
             padding: 18px;
             border-radius: 16px;
-            background: #f8fafc;
+            background: var(--cvc-bg);
             border: 1px dashed #cbd5e1;
-            color: #64748b;
+            color: var(--cvc-muted);
         }
 
         @media (max-width: 992px) {
@@ -599,3 +599,4 @@
         </div>
     </section>
 @endsection
+
