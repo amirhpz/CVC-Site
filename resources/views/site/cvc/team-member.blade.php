@@ -1,11 +1,11 @@
-@extends('site.layouts.base2')
+﻿@extends('site.layouts.base2')
 
-@section('title', ($member->fullname ?? 'پروفایل عضو تیم') . ' - مرکز تحقیقات استراتژیک مستید')
+@section('title', ($member->fullname ?? 'پروفایل عضو تیم') . ' - توسعه دانش بنیان سینا')
 
 @section('styles')
     <style>
         .profile-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             padding: 4rem 0 2rem;
             color: white;
         }
@@ -55,7 +55,7 @@
 
         .profile-social a:hover {
             background: white;
-            color: #667eea;
+            color: var(--cvc-primary-hover);
             transform: translateY(-3px);
         }
 
@@ -112,15 +112,15 @@
 
         /*.section-title {*/
         /*    font-size: 1.75rem;*/
-        /*    color: #2c3e50;*/
+        /*    color: var(--cvc-text);*/
         /*    margin-bottom: 1.5rem;*/
         /*    padding-bottom: 0.75rem;*/
-        /*    border-bottom: 3px solid #667eea;*/
+        /*    border-bottom: 3px solid var(--cvc-primary-hover);*/
         /*    display: inline-block;*/
         /*}*/
 
         .bio-text {
-            color: #555;
+            color: var(--cvc-muted);
             line-height: 1.8;
             font-size: 1.05rem;
             margin-bottom: 1.5rem;
@@ -134,27 +134,27 @@
         }
 
         .expertise-card {
-            background: #f8f9fa;
+            background: var(--cvc-bg);
             padding: 1.5rem;
             border-radius: 12px;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid var(--cvc-primary-hover);
             transition: all 0.3s ease;
         }
 
         .expertise-card:hover {
-            background: #e9ecef;
+            background: var(--cvc-border);
             transform: translateX(-5px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .expertise-card h4 {
-            color: #2c3e50;
+            color: var(--cvc-text);
             margin-bottom: 0.5rem;
             font-size: 1.1rem;
         }
 
         .expertise-card p {
-            color: #6c757d;
+            color: var(--cvc-muted);
             font-size: 0.95rem;
             line-height: 1.6;
         }
@@ -172,7 +172,7 @@
             top: 0;
             bottom: 0;
             width: 3px;
-            background: linear-gradient(to bottom, #667eea, #764ba2);
+            background: linear-gradient(to bottom, var(--cvc-primary), var(--cvc-primary-hover));
         }
 
         .education-item {
@@ -188,27 +188,27 @@
             top: 0.25rem;
             width: 1rem;
             height: 1rem;
-            background: #667eea;
+            background: var(--cvc-primary-hover);
             border-radius: 50%;
             border: 3px solid white;
-            box-shadow: 0 0 0 3px #667eea;
+            box-shadow: 0 0 0 3px var(--cvc-primary-hover);
         }
 
         .education-degree {
             font-size: 1.15rem;
-            color: #2c3e50;
+            color: var(--cvc-text);
             font-weight: 600;
             margin-bottom: 0.25rem;
         }
 
         .education-school {
-            color: #667eea;
+            color: var(--cvc-primary-hover);
             font-weight: 500;
             margin-bottom: 0.25rem;
         }
 
         .education-year {
-            color: #6c757d;
+            color: var(--cvc-muted);
             font-size: 0.9rem;
         }
 
@@ -218,7 +218,7 @@
 
         .publication-item {
             background: white;
-            border: 1px solid #e9ecef;
+            border: 1px solid var(--cvc-border);
             border-radius: 12px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
@@ -227,25 +227,25 @@
 
         .publication-item:hover {
             box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-            border-color: #667eea;
+            border-color: var(--cvc-primary-hover);
         }
 
         .publication-title {
             font-size: 1.15rem;
-            color: #2c3e50;
+            color: var(--cvc-text);
             font-weight: 600;
             margin-bottom: 0.5rem;
             line-height: 1.4;
         }
 
         .publication-meta {
-            color: #6c757d;
+            color: var(--cvc-muted);
             font-size: 0.95rem;
             margin-bottom: 0.75rem;
         }
 
         .publication-abstract {
-            color: #555;
+            color: var(--cvc-muted);
             line-height: 1.6;
             font-size: 0.95rem;
             margin-bottom: 1rem;
@@ -255,14 +255,14 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: #667eea;
+            color: var(--cvc-primary-hover);
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
         }
 
         .publication-link:hover {
-            color: #5568d3;
+            color: var(--cvc-primary-hover);
             gap: 0.75rem;
         }
 
@@ -273,10 +273,10 @@
         }
 
         .award-card {
-            background: linear-gradient(135deg, #fff5e6 0%, #ffe6f0 100%);
+            background: linear-gradient(135deg, var(--cvc-bg) 0%, var(--cvc-primary-soft) 100%);
             padding: 1.5rem;
             border-radius: 12px;
-            border-right: 4px solid #ffd700;
+            border-right: 4px solid var(--cvc-primary);
             display: flex;
             gap: 1.5rem;
             align-items: start;
@@ -285,7 +285,7 @@
         .award-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-accent) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -296,19 +296,19 @@
         }
 
         .award-content h4 {
-            color: #2c3e50;
+            color: var(--cvc-text);
             font-size: 1.15rem;
             margin-bottom: 0.5rem;
         }
 
         .award-content p {
-            color: #6c757d;
+            color: var(--cvc-muted);
             font-size: 0.95rem;
             line-height: 1.6;
         }
 
         .award-year {
-            color: #667eea;
+            color: var(--cvc-primary-hover);
             font-weight: 600;
             font-size: 0.9rem;
         }
@@ -322,14 +322,14 @@
 
         .project-card {
             background: white;
-            border: 2px solid #e9ecef;
+            border: 2px solid var(--cvc-border);
             border-radius: 12px;
             padding: 2rem;
             transition: all 0.3s ease;
         }
 
         .project-card:hover {
-            border-color: #667eea;
+            border-color: var(--cvc-primary-hover);
             box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15);
             transform: translateY(-5px);
         }
@@ -345,28 +345,28 @@
 
         .status-active {
             background: #d4edda;
-            color: #155724;
+            color: var(--cvc-text);
         }
 
         .status-completed {
             background: #d1ecf1;
-            color: #0c5460;
+            color: var(--cvc-text);
         }
 
         .project-card h4 {
-            color: #2c3e50;
+            color: var(--cvc-text);
             font-size: 1.2rem;
             margin-bottom: 0.75rem;
         }
 
         .project-card p {
-            color: #6c757d;
+            color: var(--cvc-muted);
             line-height: 1.6;
             margin-bottom: 1rem;
         }
 
         .project-duration {
-            color: #667eea;
+            color: var(--cvc-primary-hover);
             font-size: 0.9rem;
             font-weight: 500;
         }
@@ -380,7 +380,7 @@
         }
 
         .skill-category h4 {
-            color: #2c3e50;
+            color: var(--cvc-text);
             font-size: 1.1rem;
             margin-bottom: 1rem;
         }
@@ -392,7 +392,7 @@
         }
 
         .skill-tag {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             color: white;
             padding: 0.5rem 1.25rem;
             border-radius: 25px;
@@ -407,7 +407,7 @@
         }
 
         .contact-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             color: white;
             padding: 2.5rem;
             border-radius: 16px;
@@ -455,7 +455,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: #667eea;
+            color: var(--cvc-primary-hover);
             text-decoration: none;
             font-weight: 600;
             margin-bottom: 2rem;
@@ -464,7 +464,7 @@
 
         .back-to-team:hover {
             gap: 0.75rem;
-            color: #5568d3;
+            color: var(--cvc-primary-hover);
         }
 
         @media (max-width: 992px) {
@@ -583,7 +583,7 @@
                     در طول سال‌های فعالیت حرفه‌ای، دکتر رضایی در پروژه‌های متعدد ملی و بین‌المللی مشارکت داشته و به عنوان مشاور ارشد سازمان‌های دولتی و خصوصی فعالیت کرده است. تمرکز اصلی ایشان بر توسعه پایدار، نوآوری در سیاست‌گذاری عمومی و ارتقای کیفیت تحقیقات علمی است.
                 </p>
                 <p class="bio-text">
-                    به عنوان مدیر عامل مرکز تحقیقات استراتژیک مستید، دکتر رضایی با رویکردی نوآورانه و علمی، تیمی از متخصصان برجسته را در راستای تولید دانش کاربردی و ارائه راهکارهای استراتژیک به سازمان‌ها و نهادهای مختلف رهبری می‌کند.
+                    به عنوان مدیر عامل توسعه دانش بنیان سینا، دکتر رضایی با رویکردی نوآورانه و علمی، تیمی از متخصصان برجسته را در راستای تولید دانش کاربردی و ارائه راهکارهای استراتژیک به سازمان‌ها و نهادهای مختلف رهبری می‌کند.
                 </p>
 
             <!-- Expertise Areas -->
@@ -835,3 +835,4 @@
         </div>
     </section>
 @endsection
+

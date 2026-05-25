@@ -377,6 +377,17 @@
             transform: translateY(-5px);
         }
 
+        .news-item a {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .news-item a:hover,
+        .news-item a:focus {
+            text-decoration: none;
+        }
+
         .news-image {
             height: 200px;
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
@@ -385,6 +396,13 @@
             justify-content: center;
             color: white;
             font-size: 48px;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .news-content {
@@ -679,13 +697,26 @@
 
             <div class="news-grid">
                 @forelse($homeNews as $post)
+                    @php
+                        $newsCover = !empty($post->cover)
+                            ? (preg_match('/^https?:\/\//', $post->cover) ? $post->cover : asset('storage/' . ltrim($post->cover, '/')))
+                            : null;
+                    @endphp
                     <div class="news-item">
-                        <div class="news-image">📰</div>
-                        <div class="news-content">
-                            <div class="news-date">{{ $post->created_at->format('Y-m-d') }}</div>
-                            <h3>{{ $post->title }}</h3>
-                            <p>{{ \Illuminate\Support\Str::limit(strip_tags($post->description ?? ''), 120) }}</p>
-                        </div>
+                        <a href="{{ route('cvc.single-news', $post->slug) }}" class="d-block text-decoration-none text-reset">
+                            <div class="news-image">
+                                @if($newsCover)
+                                    <img src="{{ $newsCover }}" alt="{{ $post->title }}">
+                                @else
+                                    📰
+                                @endif
+                            </div>
+                            <div class="news-content">
+                                <div class="news-date">{{ $post->created_at->format('Y-m-d') }}</div>
+                                <h3>{{ $post->title }}</h3>
+                                <p>{{ \Illuminate\Support\Str::limit(strip_tags($post->description ?? ''), 120) }}</p>
+                            </div>
+                        </a>
                     </div>
                 @empty
                     <p>خبری برای نمایش ثبت نشده است.</p>
@@ -749,4 +780,3 @@
     </section>
 
 @endsection
-

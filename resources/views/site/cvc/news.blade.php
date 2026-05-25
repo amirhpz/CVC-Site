@@ -3,16 +3,16 @@
 @section('title', 'اخبار و مقالات - توسعه دانش بنیان سینا')
 
 @section('meta')
-    <meta name="description" content="آخرین اخبار، تحلیل‌ها و مقالات سرمایه‌گذاری خطرپذیر، نوآوری و اکوسیستم استارتاپی.">
+    <meta name="description"
+          content="آخرین اخبار، تحلیل‌ها و مقالات سرمایه‌گذاری خطرپذیر، نوآوری و اکوسیستم استارتاپی.">
 @endsection
 
 @section('styles')
     <style>
         .news-page {
             padding: 44px 0 76px;
-            background:
-                linear-gradient(180deg, var(--cvc-bg) 0%, #ffffff 38%),
-                #ffffff;
+            background: linear-gradient(180deg, var(--cvc-bg) 0%, #ffffff 38%),
+            #ffffff;
         }
 
         .news-header {
@@ -321,7 +321,6 @@
                 <div class="news-intro">
                     <div class="eyebrow">اخبار و مقالات</div>
                     <h1>روایت تازه‌های سرمایه‌گذاری، نوآوری و رشد استارتاپ‌ها</h1>
-                    <p>مطالب این صفحه از پنل مدیریت اخبار منتشر می‌شوند و شامل تصویر شاخص، متن کامل، دسته بندی، برچسب و رسانه‌های مرتبط هستند.</p>
                 </div>
 
                 @if($featured)
@@ -387,7 +386,8 @@
                                     @endif
                                 </div>
                                 <div>
-                                    <div class="popular-date">{{ optional($popularPost->created_at)->format('Y/m/d') }}</div>
+                                    <div
+                                        class="popular-date">{{ optional($popularPost->created_at)->format('Y/m/d') }}</div>
                                     <div class="popular-title">{{ $popularPost->title }}</div>
                                 </div>
                             </a>
