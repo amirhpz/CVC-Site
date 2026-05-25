@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: 'Dana', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: YekanBakhFaNum, Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.8;
             color: var(--cvc-text);
             background: var(--cvc-bg);
@@ -117,6 +117,7 @@
             font-size: 18px;
             margin-bottom: 30px;
             opacity: 0.95;
+            text-align: justify;
         }
 
         .hero-image {

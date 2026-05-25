@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'توسعه دانش بنیان سینا')</title>
     @yield('meta')
+    <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/YekanBakh.css') }}">
     <style>
         :root {
             --cvc-primary: #57C7B6;
@@ -27,7 +28,7 @@
         }
 
         body {
-            font-family: 'Dana', Verdana, sans-serif;
+            font-family: YekanBakhFaNum, Verdana, sans-serif;
             line-height: 1.8;
             color: var(--cvc-text);
             background: var(--cvc-bg);

@@ -45,6 +45,7 @@
             font-size: 18px;
             margin-bottom: 30px;
             opacity: 0.95;
+            text-align: justify;
         }
 
         .hero-image {
