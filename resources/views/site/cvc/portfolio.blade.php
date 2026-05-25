@@ -1,13 +1,13 @@
 @extends('site.layouts.base2')
 
-@section('title', 'نمونه کارها - مرکز تحقیقات استراتژیک مستید')
+@section('title', 'نمونه کارها - توسعه دانش بنیان سینا')
 
 @section('styles')
     <style>
 
         /* Hero Section */
         .portfolio-hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             padding: 5rem 0 3rem;
             color: white;
             text-align: center;
@@ -74,7 +74,7 @@
         .portfolio-filter {
             background: white;
             padding: 2rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(36, 66, 61, 0.06);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -102,13 +102,13 @@
         }
 
         .filter-btn:hover {
-            border-color: #667eea;
-            color: #667eea;
+            border-color: var(--cvc-primary);
+            color: var(--cvc-primary-hover);
             transform: translateY(-2px);
         }
 
         .filter-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             color: white;
             border-color: transparent;
             box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
@@ -126,7 +126,7 @@
 
         .section-header h2 {
             font-size: 2.5rem;
-            color: #2c3e50;
+            color: var(--cvc-text);
             margin-bottom: 1rem;
             position: relative;
             display: inline-block;
@@ -140,12 +140,12 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             border-radius: 2px;
         }
 
         .section-header p {
-            color: #6c757d;
+            color: var(--cvc-muted);
             font-size: 1.1rem;
             max-width: 700px;
             margin: 1.5rem auto 0;
@@ -177,7 +177,7 @@
         .portfolio-image {
             width: 100%;
             height: 250px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -208,7 +208,7 @@
             top: 1rem;
             right: 1rem;
             background: rgba(255,255,255,0.95);
-            color: #667eea;
+            color: var(--cvc-primary-hover);
             padding: 0.5rem 1rem;
             border-radius: 50px;
             font-size: 0.85rem;
@@ -222,7 +222,7 @@
 
         .portfolio-category {
             display: inline-block;
-            color: #667eea;
+            color: var(--cvc-primary-hover);
             font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 0.75rem;
@@ -250,19 +250,19 @@
             justify-content: space-between;
             align-items: center;
             padding-top: 1rem;
-            border-top: 2px solid #f8f9fa;
+            border-top: 2px solid var(--cvc-border);
         }
 
         .portfolio-client {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: #495057;
+            color: var(--cvc-muted);
             font-size: 0.9rem;
         }
 
         .portfolio-client i {
-            color: #667eea;
+            color: var(--cvc-primary-hover);
         }
 
         .portfolio-date {
@@ -281,8 +281,8 @@
         }
 
         .portfolio-tag {
-            background: #f8f9fa;
-            color: #495057;
+            background: var(--cvc-bg);
+            color: var(--cvc-muted);
             padding: 0.4rem 0.8rem;
             border-radius: 20px;
             font-size: 0.8rem;
@@ -291,7 +291,7 @@
 
         /* Featured Projects */
         .featured-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: linear-gradient(135deg, var(--cvc-bg) 0%, #eef5f3 100%);
             padding: 4rem 0;
             margin: 4rem 0;
         }
@@ -313,15 +313,15 @@
         }
 
         .featured-card:hover {
-            border-color: #667eea;
+            border-color: var(--cvc-primary);
             transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.2);
+            box-shadow: 0 8px 30px rgba(87, 199, 182, 0.18);
         }
 
         .featured-icon {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -332,13 +332,13 @@
         }
 
         .featured-card h3 {
-            color: #2c3e50;
+            color: var(--cvc-text);
             font-size: 1.4rem;
             margin-bottom: 1rem;
         }
 
         .featured-card p {
-            color: #6c757d;
+            color: var(--cvc-muted);
             line-height: 1.7;
             margin-bottom: 1rem;
         }
@@ -351,7 +351,7 @@
 
         .featured-list li {
             padding: 0.5rem 0;
-            color: #495057;
+            color: var(--cvc-muted);
             display: flex;
             align-items: center;
             gap: 0.75rem;
@@ -359,14 +359,14 @@
 
         .featured-list li::before {
             content: '✓';
-            color: #667eea;
+            color: var(--cvc-primary-hover);
             font-weight: bold;
             font-size: 1.2rem;
         }
 
         /* CTA Section */
         .portfolio-cta {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             padding: 4rem 0;
             color: white;
             text-align: center;
@@ -425,7 +425,7 @@
 
         .cta-btn-primary {
             background: white;
-            color: #667eea;
+            color: var(--cvc-primary-hover);
         }
 
         .cta-btn-primary:hover {
@@ -457,7 +457,7 @@
         }
 
         .testimonial-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: linear-gradient(135deg, var(--cvc-bg) 0%, #eef5f3 100%);
             padding: 2rem;
             border-radius: 16px;
             position: relative;
@@ -471,7 +471,7 @@
 
         .testimonial-quote {
             font-size: 3rem;
-            color: #667eea;
+            color: var(--cvc-primary-hover);
             opacity: 0.3;
             position: absolute;
             top: 1rem;
@@ -496,7 +496,7 @@
         .testimonial-avatar {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -619,7 +619,7 @@
             <div class="container">
                 <h1>نمونه کارها و سرمایه‌گذاری‌های موفق</h1>
                 <p>
-                    مرکز تحقیقات استراتژیک مستید با افتخار مجموعه‌ای از پروژه‌های موفق، سرمایه‌گذاری‌های استراتژیک
+                    توسعه دانش بنیان سینا با افتخار مجموعه‌ای از پروژه‌های موفق، سرمایه‌گذاری‌های استراتژیک
                     و همکاری‌های پژوهشی خود را به نمایش می‌گذارد. هر پروژه نمایانگر تعهد ما به نوآوری، کیفیت و ایجاد ارزش پایدار است.
                 </p>
                 <div class="hero-stats">
@@ -663,7 +663,7 @@
             <div class="section-header">
                 <h2>پروژه‌های برجسته</h2>
                 <p>
-                    مجموعه‌ای از پروژه‌های موفق که با حمایت مالی و مشاوره‌ای مرکز تحقیقات استراتژیک مستید
+                    مجموعه‌ای از پروژه‌های موفق که با حمایت مالی و مشاوره‌ای توسعه دانش بنیان سینا
                     به رشد و توسعه پایدار دست یافته‌اند.
                 </p>
             </div>
@@ -673,7 +673,7 @@
                     @php($category = $project->sub_title ?: 'عمومی')
                     @php($categoryKey = \Illuminate\Support\Str::slug($category))
                     <div class="portfolio-card" data-category="{{ $categoryKey !== '' ? $categoryKey : 'category-' . $loop->index }}">
-                        <div class="portfolio-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="portfolio-image" style="background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);">
                             @if(!empty($project->cover))
                                 <img src="{{ asset('storage/' . $project->cover) }}" alt="{{ $project->title }}"
                                      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
@@ -806,7 +806,7 @@
             <div class="section-header">
                 <h2>نظرات مشتریان و شرکا</h2>
                 <p>
-                    آنچه بنیان‌گذاران و مدیران شرکت‌های سرمایه‌پذیر درباره همکاری با مرکز تحقیقات استراتژیک مستید می‌گویند.
+                    آنچه بنیان‌گذاران و مدیران شرکت‌های سرمایه‌پذیر درباره همکاری با توسعه دانش بنیان سینا می‌گویند.
                 </p>
             </div>
 
@@ -891,4 +891,3 @@
         });
     </script>
 @endsection
-

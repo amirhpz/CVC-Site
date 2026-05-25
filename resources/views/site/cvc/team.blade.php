@@ -1,13 +1,13 @@
 @extends('site.layouts.base2')
 
-@section('title', 'تیم ما - مرکز تحقیقات استراتژیک مستید')
+@section('title', 'تیم ما - توسعه دانش بنیان سینا')
 
 @section('styles')
     <style>
 
 
         .page-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             color: white;
             padding: 4rem 0;
             text-align: center;
@@ -30,7 +30,7 @@
         }
 
         .team-section.research-team {
-            background: #f8f9fa;
+            background: var(--cvc-bg);
         }
 
         .section-header {
@@ -40,12 +40,12 @@
 
         .section-header h2 {
             font-size: 2rem;
-            color: #2c3e50;
+            color: var(--cvc-text);
             margin-bottom: 0.5rem;
         }
 
         .section-header p {
-            color: #6c757d;
+            color: var(--cvc-muted);
             font-size: 1.1rem;
         }
 
@@ -61,7 +61,7 @@
         }
 
         .team-card {
-            background: white;
+            background: var(--cvc-surface);
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -108,7 +108,7 @@
             width: 40px;
             height: 40px;
             background: white;
-            color: #667eea;
+            color: var(--cvc-primary-hover);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -118,7 +118,7 @@
         }
 
         .social-links a:hover {
-            background: #667eea;
+            background: var(--cvc-primary);
             color: white;
             transform: scale(1.1);
         }
@@ -133,13 +133,13 @@
 
         .team-info h3 {
             font-size: 1.25rem;
-            color: #2c3e50;
+            color: var(--cvc-text);
             margin-bottom: 0.5rem;
         }
 
         .team-role {
             display: block;
-            color: #667eea;
+            color: var(--cvc-primary-hover);
             font-weight: 600;
             margin-bottom: 1rem;
             font-size: 0.95rem;
@@ -155,7 +155,7 @@
         .btn-profile {
             display: inline-block;
             padding: 0.5rem 1.5rem;
-            background: #667eea;
+            background: var(--cvc-primary);
             color: white;
             text-decoration: none;
             border-radius: 6px;
@@ -168,7 +168,7 @@
         }
 
         .join-team-cta {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             color: white;
             padding: 4rem 0;
             text-align: center;
@@ -192,7 +192,7 @@
             display: inline-block;
             padding: 1rem 2.5rem;
             background: white;
-            color: #667eea;
+            color: var(--cvc-primary-hover);
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
@@ -238,7 +238,7 @@
     <section class="page-header">
         <div class="container">
             <h1>تیم ما</h1>
-            <p class="lead">متخصصان و پژوهشگران مرکز تحقیقات استراتژیک مستید</p>
+            <p class="lead">متخصصان و پژوهشگران توسعه دانش بنیان سینا</p>
         </div>
     </section>
 
@@ -252,7 +252,7 @@
             <div class="team-grid">
                 @forelse($teamMembers as $member)
                     <div class="team-card">
-                        <div class="team-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="team-image" style="background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);">
                             @if(!empty($member->image))
                                 <img src="{{ asset('storage/' . $member->image) }}" alt="{{ $member->fullname }}"
                                      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">

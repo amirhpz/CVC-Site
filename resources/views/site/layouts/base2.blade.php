@@ -66,15 +66,10 @@
         }
 
         .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--cvc-hero);
-            border-radius: 8px;
+            width: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: bold;
         }
 
         nav ul {
@@ -351,8 +346,7 @@
     <div class="container">
         <nav>
             <div class="logo">
-                <div class="logo-icon">س</div>
-                <span>توسعه دانش بنیان سینا</span>
+                <img class="logo-icon" src="{{asset('/site/assets/images/logo/logo.png')}}" alt="">
             </div>
 
             <!-- Desktop Menu -->
@@ -360,7 +354,6 @@
                 <li><a href="/">خانه</a></li>
                 <li><a href="/about">درباره ما</a></li>
                 <li><a href="/portfolio">پورتفولیو</a></li>
-                <li><a href="/services">خدمات</a></li>
                 <li><a href="/team">تیم</a></li>
                 <li><a href="/news">اخبار</a></li>
                 <li><a href="/contact">تماس</a></li>

@@ -1,13 +1,13 @@
 @extends('site.layouts.base2')
 
-@section('title', 'درباره ما - مرکز تحقیقات استراتژیک مستید')
+@section('title', 'درباره ما - توسعه دانش بنیان سینا')
 
 @section('styles')
     <style>
 
         /* Hero Section */
         .about-hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             padding: 6rem 0 5rem;
             color: white;
             text-align: center;
@@ -33,7 +33,7 @@
             left: 0;
             right: 0;
             height: 100px;
-            background: #ffffff;
+            background: var(--cvc-surface);
             clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
         }
 
@@ -120,7 +120,7 @@
 
         .story-text h2 {
             font-size: 2.8rem;
-            color: #2c3e50;
+            color: var(--cvc-text);
             margin-bottom: 1.5rem;
             position: relative;
             display: inline-block;
@@ -134,19 +134,19 @@
             left: 0;
             width: 100px;
             height: 5px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             border-radius: 3px;
         }
 
         .story-text h3 {
             font-size: 1.5rem;
-            color: #667eea;
+            color: var(--cvc-primary-hover);
             margin: 2rem 0 1rem;
             font-weight: 700;
         }
 
         .story-text p {
-            color: #555;
+            color: var(--cvc-muted);
             line-height: 2;
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
@@ -154,17 +154,17 @@
         }
 
         .story-highlight {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: linear-gradient(135deg, var(--cvc-bg) 0%, #eef5f3 100%);
             padding: 2rem;
             border-radius: 16px;
-            border-right: 5px solid #667eea;
+            border-right: 5px solid var(--cvc-primary);
             margin: 2rem 0;
         }
 
         .story-highlight p {
             margin: 0;
             font-size: 1.15rem;
-            color: #2c3e50;
+            color: var(--cvc-text);
             font-weight: 500;
             font-style: italic;
         }
@@ -177,7 +177,7 @@
             position: relative;
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 60px rgba(36, 66, 61, 0.12);
         }
 
         .story-image {
@@ -192,7 +192,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+            background: linear-gradient(to top, rgba(36, 66, 61, 0.72) 0%, transparent 100%);
             padding: 2rem;
             color: white;
         }
@@ -212,7 +212,7 @@
             position: absolute;
             width: 200px;
             height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             border-radius: 50%;
             opacity: 0.1;
             z-index: -1;
@@ -230,7 +230,7 @@
 
         /* Mission & Vision Section */
         .mission-vision-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: linear-gradient(135deg, var(--cvc-bg) 0%, #eef5f3 100%);
             padding: 6rem 0;
             position: relative;
         }
@@ -242,7 +242,7 @@
 
         .section-header h2 {
             font-size: 2.8rem;
-            color: #2c3e50;
+            color: var(--cvc-text);
             margin-bottom: 1rem;
             font-weight: 800;
         }
@@ -279,7 +279,7 @@
             left: 0;
             right: 0;
             height: 5px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             transform: scaleX(0);
             transition: transform 0.4s ease;
         }
@@ -296,7 +296,7 @@
         .mv-icon {
             width: 90px;
             height: 90px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -358,7 +358,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             opacity: 0;
             transition: opacity 0.4s ease;
             z-index: 0;
@@ -371,7 +371,7 @@
         .value-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
-            border-color: #667eea;
+            border-color: var(--cvc-primary);
         }
 
         .value-card > * {
@@ -381,7 +381,7 @@
 
         .value-icon {
             font-size: 3rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -425,7 +425,7 @@
             bottom: 0;
             right: 50%;
             width: 4px;
-            background: linear-gradient(to bottom, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(to bottom, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             border-radius: 2px;
         }
 
@@ -460,7 +460,7 @@
             transform: translateX(50%);
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -515,7 +515,7 @@
         .team-image {
             width: 100%;
             height: 300px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -548,7 +548,7 @@
         }
 
         .team-info .team-role {
-            color: #667eea;
+            color: var(--cvc-primary-hover);
             font-size: 1.1rem;
             margin-bottom: 1rem;
             font-weight: 600;
@@ -570,7 +570,7 @@
         .team-social a {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -618,7 +618,7 @@
         .partner-logo {
             font-size: 2rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -627,7 +627,7 @@
 
         /* CTA Section */
         .about-cta {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             padding: 5rem 0;
             color: white;
             text-align: center;
@@ -687,7 +687,7 @@
 
         .cta-btn-primary {
             background: white;
-            color: #667eea;
+            color: var(--cvc-primary-hover);
         }
 
         .cta-btn-primary:hover {
@@ -704,7 +704,7 @@
 
         .cta-btn-secondary:hover {
             background: white;
-            color: #667eea;
+            color: var(--cvc-primary-hover);
             transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
         }
@@ -812,7 +812,7 @@
     <section class="about-hero">
         <div class="about-hero-content">
             <div class="container">
-                <h1>مرکز تحقیقات استراتژیک مستید</h1>
+                <h1>توسعه دانش بنیان سینا</h1>
                 <p>
                     ما پلی میان ایده‌های نوآورانه و موفقیت‌های تجاری هستیم. با ترکیب دانش، تجربه و سرمایه،
                     آینده‌ای روشن برای کسب‌وکارهای نوپا و فناوری‌محور می‌سازیم.
@@ -847,7 +847,7 @@
                 <div class="story-text">
                     <h2>داستان ما</h2>
                     <p>
-                        مرکز تحقیقات استراتژیک مستید در سال ۱۳۸۸ با هدف ایجاد پلی میان ایده‌های نوآورانه و موفقیت‌های
+                        توسعه دانش بنیان سینا با هدف ایجاد پلی میان ایده‌های نوآورانه و موفقیت‌های
                         تجاری
                         تاسیس شد. ما با درک عمیق از چالش‌های استارتاپ‌ها و کسب‌وکارهای نوپا، تصمیم گرفتیم فراتر از یک
                         سرمایه‌گذار سنتی عمل کنیم.
@@ -999,7 +999,7 @@
             <div class="section-header">
                 <h2>سیر تحول ما</h2>
                 <p>
-                    نگاهی به مسیر رشد و دستاوردهای مرکز تحقیقات استراتژیک مستید
+                    نگاهی به مسیر رشد و دستاوردهای توسعه دانش بنیان سینا
                 </p>
             </div>
 
@@ -1175,4 +1175,3 @@
         </div>
     </section>
 @endsection
-

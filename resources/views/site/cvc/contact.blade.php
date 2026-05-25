@@ -1,11 +1,11 @@
 @extends('site.layouts.base2')
 
-@section('title', 'تماس با ما - مرکز تحقیقات استراتژیک مستید')
+@section('title', 'تماس با ما - توسعه دانش بنیان سینا')
 
 @section('styles')
     <style>
         .contact-hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             padding: 5rem 0 3rem;
             color: white;
             text-align: center;
@@ -44,7 +44,7 @@
 
         .contact-main {
             padding: 4rem 0;
-            background: #f8f9fa;
+            background: var(--cvc-bg);
         }
 
         .contact-container {
@@ -62,7 +62,7 @@
         }
 
         .info-card {
-            background: white;
+            background: var(--cvc-surface);
             border-radius: 16px;
             padding: 2rem;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -84,7 +84,7 @@
         .info-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -95,13 +95,13 @@
         }
 
         .info-card-header h3 {
-            color: #2c3e50;
+            color: var(--cvc-text);
             font-size: 1.3rem;
             margin: 0;
         }
 
         .info-card-content {
-            color: #555;
+            color: var(--cvc-muted);
             line-height: 1.8;
         }
 
@@ -120,7 +120,7 @@
         }
 
         .info-item i {
-            color: #667eea;
+            color: var(--cvc-primary-hover);
             font-size: 1.2rem;
             margin-top: 0.25rem;
             flex-shrink: 0;
@@ -132,16 +132,16 @@
 
         .info-item-label {
             font-weight: 600;
-            color: #2c3e50;
+            color: var(--cvc-text);
             margin-bottom: 0.25rem;
         }
 
         .info-item-value {
-            color: #6c757d;
+            color: var(--cvc-muted);
         }
 
         .info-item-value a {
-            color: #667eea;
+            color: var(--cvc-primary-hover);
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -160,7 +160,7 @@
         .social-link {
             width: 48px;
             height: 48px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -227,8 +227,8 @@
 
         .form-control:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            border-color: var(--cvc-primary);
+            box-shadow: 0 0 0 4px rgba(87, 199, 182, 0.12);
         }
 
         .form-control::placeholder {
@@ -247,7 +247,7 @@
         }
 
         .submit-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             color: white;
             border: none;
             padding: 1rem 2.5rem;
@@ -283,7 +283,7 @@
 
         .map-header {
             padding: 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             color: white;
             text-align: center;
         }
@@ -304,7 +304,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #667eea;
+            color: var(--cvc-primary-hover);
             font-size: 3rem;
         }
 
@@ -322,7 +322,7 @@
         }
 
         .quick-contact-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: linear-gradient(135deg, var(--cvc-bg) 0%, #eef5f3 100%);
             padding: 2rem;
             border-radius: 12px;
             text-align: center;
@@ -331,7 +331,7 @@
         }
 
         .quick-contact-card:hover {
-            border-color: #667eea;
+            border-color: var(--cvc-primary);
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
         }
@@ -339,7 +339,7 @@
         .quick-contact-icon {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -365,7 +365,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: #667eea;
+            color: var(--cvc-primary-hover);
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
@@ -377,7 +377,7 @@
         }
 
         .working-hours {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--cvc-primary) 0%, var(--cvc-primary-hover) 100%);
             color: white;
             padding: 3rem 0;
             margin-top: 4rem;
@@ -786,7 +786,7 @@
     <section class="map-section">
         <div class="map-header">
             <h2>موقعیت ما روی نقشه</h2>
-            <p>به‌زودی نقشه تعاملی دفتر مرکزی مرکز تحقیقات استراتژیک مستید در این بخش قرار خواهد گرفت.</p>
+            <p>به‌زودی نقشه تعاملی دفتر مرکزی توسعه دانش بنیان سینا در این بخش قرار خواهد گرفت.</p>
         </div>
         <div class="map-container">
             <i class="fas fa-map-marked-alt" aria-hidden="true"></i>
@@ -796,7 +796,7 @@
     <!-- Working Hours -->
     <section class="working-hours">
         <div class="working-hours-content">
-            <h2>ساعات کاری مرکز تحقیقات استراتژیک مستید</h2>
+            <h2>ساعات کاری توسعه دانش بنیان سینا</h2>
             <p>
                 شما می‌توانید در ساعات زیر با دفتر مرکزی در تماس باشید. در خارج از این ساعات، پیام خود را از طریق فرم
                 تماس ارسال کنید.
