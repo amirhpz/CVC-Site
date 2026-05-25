@@ -520,7 +520,8 @@
                                 <div class="info-item-content">
                                     <div class="info-item-label">آدرس</div>
                                     <div class="info-item-value">
-                                        تهران، خیابان ولیعصر، بالاتر از میدان ونک، پلاک ۱۲۳۴، طبقه ۵
+                                        تهران، تهران، بزرگراه شهید سلیمانی غرب، ابتدای خیابان نلسون ماندلا، ساختمان
+                                        مرکزی بنیاد مستضعفان طبقه 15
                                     </div>
                                 </div>
                             </div>
@@ -548,7 +549,7 @@
                                 <div class="info-item-content">
                                     <div class="info-item-label">تلفن دفتر مرکزی</div>
                                     <div class="info-item-value">
-                                        <a href="tel:+982188776655">۰۲۱-۸۸۷۷۶۶۵۵</a>
+                                        <a href="tel:+982188670701">021-88670701</a>
                                     </div>
                                 </div>
                             </div>
@@ -556,7 +557,7 @@
                                 <i class="fas fa-fax"></i>
                                 <div class="info-item-content">
                                     <div class="info-item-label">فکس</div>
-                                    <div class="info-item-value">۰۲۱-۸۸۷۷۶۶۵۶</div>
+                                    <div class="info-item-value">021-88670701</div>
                                 </div>
                             </div>
                             <div class="info-item">
@@ -564,7 +565,7 @@
                                 <div class="info-item-content">
                                     <div class="info-item-label">ایمیل</div>
                                     <div class="info-item-value">
-                                        <a href="mailto:info@mstid.com">info@mstid.com</a>
+                                        <a href="mailto:info@sina.vc">info@sina.vc</a>
                                     </div>
                                 </div>
                             </div>
@@ -573,7 +574,7 @@
                                 <div class="info-item-content">
                                     <div class="info-item-label">پشتیبانی</div>
                                     <div class="info-item-value">
-                                        <a href="mailto:support@mstid.com">support@mstid.com</a>
+                                        <a href="mailto:support@mstid.com">support@sina.vc</a>
                                     </div>
                                 </div>
                             </div>
@@ -623,7 +624,8 @@
                     </div>
 
                     @if(session('contact_success'))
-                        <div class="alert alert-success" style="margin-bottom: 24px; padding: 14px 16px; background:#e8f5e9; border:1px solid #a5d6a7; border-radius:10px; color:#1b5e20;">
+                        <div class="alert alert-success"
+                             style="margin-bottom: 24px; padding: 14px 16px; background:#e8f5e9; border:1px solid #a5d6a7; border-radius:10px; color:#1b5e20;">
                             پیام شما با موفقیت ارسال شد.
                         </div>
                     @endif

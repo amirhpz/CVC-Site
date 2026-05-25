@@ -67,7 +67,7 @@
         }
 
         .logo-icon {
-            width: 80px;
+            width: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -375,7 +375,6 @@
             <li><a href="/">خانه</a></li>
             <li><a href="/about">درباره ما</a></li>
             <li><a href="/portfolio">پورتفولیو</a></li>
-            <li><a href="/services">خدمات</a></li>
             <li><a href="/team">تیم</a></li>
             <li><a href="/news">اخبار</a></li>
             <li><a href="/contact">تماس</a></li>
@@ -423,9 +422,9 @@
             <div class="footer-links">
                 <h4>ارتباط با ما</h4>
                 <ul>
-                    <li><a href="#">لینکدین</a></li>
+                    <li><a href="#">ایتا</a></li>
                     <li><a href="#">اینستاگرام</a></li>
-                    <li><a href="#">تلگرام</a></li>
+                    <li><a href="#">بله</a></li>
                 </ul>
             </div>
 
