@@ -3,6 +3,17 @@
 @section('title', ($post->title ?? 'خبر') . ' - توسعه دانش بنیان سینا')
 
 @php
+    $jalaliDate = function ($date, string $format = 'Y/m/d') {
+        if (empty($date)) {
+            return '---';
+        }
+
+        try {
+            return jdate($date)->format($format);
+        } catch (\Throwable $e) {
+            return optional($date)->format('Y/m/d') ?? '---';
+        }
+    };
     $coverUrl = !empty($post->cover)
         ? (preg_match('/^https?:\/\//', $post->cover) ? $post->cover : asset('storage/' . ltrim($post->cover, '/')))
         : null;
@@ -14,8 +25,8 @@
         $excerpt = trim(strip_tags($post->full_description ?? ''));
     }
     $excerpt = \Illuminate\Support\Str::limit($excerpt, 160);
-    $authorName = $post->user->name ?? $post->user->username ?? 'تحریریه CVC';
-    $authorRole = $post->sub_title ?: 'خبر CVC';
+    $authorName = $post->user->name ?? $post->user->username ?? 'تحریریه';
+    $authorRole = $post->sub_title ?: 'خبر';
     $tagsArray = collect(explode(',', (string) ($post->en_title ?? '')))
         ->map(fn ($tag) => trim($tag))
         ->filter()
@@ -137,6 +148,7 @@
         }
 
         .article-content {
+            padding-top: 2rem;
             font-size: 17px;
             line-height: 2.05;
             color: var(--cvc-text);
@@ -452,7 +464,7 @@
 
                     <div class="article-body">
                         <div class="article-meta">
-                            <span>تاریخ: {{ optional($post->created_at)->format('Y/m/d') }}</span>
+                            <span>تاریخ: {{ $jalaliDate($post->created_at) }}</span>
                             <span>نویسنده: {{ $authorName }}</span>
                             <span>دسته بندی: {{ $post->sub_title ?: 'عمومی' }}</span>
                         </div>
@@ -477,7 +489,9 @@
                             <div class="article-attachment">
                                 <div>
                                     <strong>پیوست خبر</strong>
-                                    <div class="text-muted" style="font-size:14px;">فایل مرتبط برای دانلود یا مشاهده در دسترس است.</div>
+                                    <div class="text-muted" style="font-size:14px;">فایل مرتبط برای دانلود یا مشاهده در
+                                        دسترس است.
+                                    </div>
                                 </div>
                                 <a class="download-btn" href="{{ $attachmentUrl }}" target="_blank" rel="noopener">
                                     دریافت فایل
@@ -519,9 +533,12 @@
                             @php $shareUrl = urlencode(route('cvc.single-news', $post->slug)); @endphp
                             <strong>اشتراک گذاری</strong>
                             <div class="chips" style="margin-top:12px;">
-                                <a class="chip" target="_blank" rel="noopener" href="https://t.me/share/url?url={{ $shareUrl }}">تلگرام</a>
-                                <a class="chip" target="_blank" rel="noopener" href="https://wa.me/?text={{ $shareUrl }}">واتساپ</a>
-                                <a class="chip" target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url={{ $shareUrl }}">لینکدین</a>
+                                <a class="chip" target="_blank" rel="noopener"
+                                   href="https://t.me/share/url?url={{ $shareUrl }}">تلگرام</a>
+                                <a class="chip" target="_blank" rel="noopener"
+                                   href="https://wa.me/?text={{ $shareUrl }}">واتساپ</a>
+                                <a class="chip" target="_blank" rel="noopener"
+                                   href="https://www.linkedin.com/sharing/share-offsite/?url={{ $shareUrl }}">لینکدین</a>
                             </div>
                         </div>
 
@@ -533,11 +550,14 @@
                                         <a href="{{ route('cvc.single-news', $relatedPost->slug) }}">
                                             <div class="related-thumb">
                                                 @if(!empty($relatedPost->cover))
-                                                    <img src="{{ preg_match('/^https?:\/\//', $relatedPost->cover) ? $relatedPost->cover : asset('storage/' . ltrim($relatedPost->cover, '/')) }}" alt="{{ $relatedPost->title }}">
+                                                    <img
+                                                        src="{{ preg_match('/^https?:\/\//', $relatedPost->cover) ? $relatedPost->cover : asset('storage/' . ltrim($relatedPost->cover, '/')) }}"
+                                                        alt="{{ $relatedPost->title }}">
                                                 @endif
                                             </div>
                                             <div class="related-content">
-                                                <div class="related-date">{{ optional($relatedPost->created_at)->format('Y/m/d') }}</div>
+                                                <div
+                                                    class="related-date">{{ $jalaliDate($relatedPost->created_at) }}</div>
                                                 <div class="related-title">{{ $relatedPost->title }}</div>
                                             </div>
                                         </a>
@@ -556,12 +576,15 @@
                         @forelse($popularPosts as $popularPost)
                             <a class="popular-post" href="{{ route('cvc.single-news', $popularPost->slug) }}">
                                 <div class="popular-thumb">
-                                    @if(!empty($popularPost->cover))
-                                        <img src="{{ preg_match('/^https?:\/\//', $popularPost->cover) ? $popularPost->cover : asset('storage/' . ltrim($popularPost->cover, '/')) }}" alt="">
+                                @if(!empty($popularPost->cover))
+                                        <img
+                                            src="{{ preg_match('/^https?:\/\//', $popularPost->cover) ? $popularPost->cover : asset('storage/' . ltrim($popularPost->cover, '/')) }}"
+                                            alt="">
                                     @endif
                                 </div>
                                 <div>
-                                    <div class="popular-date">{{ optional($popularPost->created_at)->format('Y/m/d') }}</div>
+                                    <div
+                                        class="popular-date">{{ $jalaliDate($popularPost->created_at) }}</div>
                                     <div class="popular-title">{{ $popularPost->title }}</div>
                                 </div>
                             </a>
@@ -599,4 +622,3 @@
         </div>
     </section>
 @endsection
-

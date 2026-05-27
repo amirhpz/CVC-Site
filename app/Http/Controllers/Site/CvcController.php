@@ -9,6 +9,7 @@ use App\Models\Content;
 use App\Models\Emploee;
 use App\Models\Post;
 use App\Models\Product;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
@@ -55,8 +56,10 @@ class CvcController extends Controller
     public function home3(): View
     {
         $pageContent = $this->getPageContent('cvc-home3');
+
         return view('site.cvc.home3', compact('pageContent'));
     }
+
 
     public function about(): View
     {
@@ -192,20 +195,33 @@ class CvcController extends Controller
         return redirect()->route('cvc.team-member', $member->slug);
     }
 
-    public function news(): View
+    public function news(Request $request): View|JsonResponse
     {
-        $posts = collect();
+        $featured = null;
+        $listPosts = collect();
         $popularPosts = collect();
         $categories = collect();
         $tags = collect();
+        $hasMore = false;
+        $nextOffset = 0;
 
         if (Schema::hasTable('posts')) {
-            $posts = Post::query()
+            $query = Post::query()
                 ->where('status', 4)
                 ->with('user:id,name,username')
-                ->latest()
-                ->take(8)
+                ->latest();
+
+            $totalPosts = (clone $query)->count();
+            $listOffset = max(0, (int) $request->integer('offset', 0));
+
+            $featured = (clone $query)->first();
+            $listPosts = (clone $query)
+                ->skip($featured ? ($listOffset + 1) : $listOffset)
+                ->take(6)
                 ->get();
+            $nextOffset = $listOffset + $listPosts->count();
+            $remainingPosts = max($totalPosts - ($featured ? 1 : 0), 0);
+            $hasMore = $nextOffset < $remainingPosts;
 
             $popularPosts = Post::query()
                 ->where('status', 4)
@@ -236,7 +252,15 @@ class CvcController extends Controller
                 ->take(12);
         }
 
-        return view('site.cvc.news', compact('posts', 'popularPosts', 'categories', 'tags'));
+        if ($request->boolean('fragment') || $request->ajax()) {
+            return response()->json([
+                'html' => view('site.cvc.partials.news-cards', compact('listPosts'))->render(),
+                'hasMore' => $hasMore,
+                'nextOffset' => $nextOffset,
+            ]);
+        }
+
+        return view('site.cvc.news', compact('featured', 'listPosts', 'popularPosts', 'categories', 'tags', 'hasMore', 'nextOffset'));
     }
 
     public function singleNews(string $slug): View

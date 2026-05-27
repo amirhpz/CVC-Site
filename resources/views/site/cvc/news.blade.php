@@ -7,6 +7,81 @@
           content="آخرین اخبار، تحلیل‌ها و مقالات سرمایه‌گذاری خطرپذیر، نوآوری و اکوسیستم استارتاپی.">
 @endsection
 
+@section('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const button = document.getElementById('loadMoreNews');
+            const grid = document.getElementById('newsGrid');
+            const buttonLabel = button ? button.querySelector('[data-load-more-label]') : null;
+
+            if (!button || !grid) {
+                return;
+            }
+
+            button.addEventListener('click', async function () {
+                const nextOffset = parseInt(button.dataset.nextOffset || '0', 10);
+                const url = new URL(window.location.href);
+                url.searchParams.set('offset', String(nextOffset));
+                url.searchParams.set('fragment', '1');
+
+                const originalLabel = buttonLabel ? buttonLabel.textContent : button.textContent;
+                button.disabled = true;
+                button.classList.add('is-loading');
+
+                if (buttonLabel) {
+                    buttonLabel.textContent = 'در حال بارگذاری خبرهای بیشتر...';
+                } else {
+                    button.textContent = 'در حال بارگذاری خبرهای بیشتر...';
+                }
+
+                try {
+                    const response = await fetch(url.toString(), {
+                        headers: {'X-Requested-With': 'XMLHttpRequest'}
+                    });
+                    const data = await response.json();
+
+                    if (data.html) {
+                        grid.insertAdjacentHTML('beforeend', data.html);
+                    }
+
+                    if (typeof data.nextOffset === 'number') {
+                        button.dataset.nextOffset = String(data.nextOffset);
+                    }
+
+                    if (!data.hasMore) {
+                        button.remove();
+                        return;
+                    }
+
+                    button.disabled = false;
+                    button.classList.remove('is-loading');
+
+                    if (buttonLabel) {
+                        buttonLabel.textContent = originalLabel;
+                    } else {
+                        button.textContent = originalLabel;
+                    }
+                } catch (error) {
+                    button.disabled = false;
+                    button.classList.remove('is-loading');
+
+                    if (buttonLabel) {
+                        buttonLabel.textContent = 'خطا در بارگذاری، دوباره تلاش کنید';
+
+                        window.setTimeout(function () {
+                            if (!button.disabled) {
+                                buttonLabel.textContent = originalLabel;
+                            }
+                        }, 2200);
+                    } else {
+                        button.textContent = originalLabel;
+                    }
+                }
+            });
+        });
+    </script>
+@endsection
+
 @section('styles')
     <style>
         .news-page {
@@ -284,6 +359,87 @@
             color: var(--cvc-muted);
         }
 
+        .load-more-wrap {
+            display: flex;
+            justify-content: center;
+            margin-top: 32px;
+        }
+
+        .load-more-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: 0;
+            border-radius: 999px;
+            padding: 14px 22px;
+            background: linear-gradient(135deg, var(--cvc-primary-hover), var(--cvc-text));
+            color: #fff;
+            font-size: 14px;
+            font-weight: 800;
+            line-height: 1;
+            box-shadow: 0 18px 30px rgba(15, 35, 53, 0.18);
+            transition: transform .22s ease, box-shadow .22s ease, opacity .22s ease;
+        }
+
+        .load-more-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 22px 36px rgba(15, 35, 53, 0.24);
+        }
+
+        .load-more-button:focus-visible {
+            outline: 3px solid rgba(14, 116, 144, 0.22);
+            outline-offset: 3px;
+        }
+
+        .load-more-button:disabled {
+            cursor: wait;
+            opacity: .92;
+        }
+
+        .load-more-button.is-loading {
+            pointer-events: none;
+        }
+
+        .load-more-button svg {
+            width: 18px;
+            height: 18px;
+            flex: 0 0 18px;
+            transition: transform .22s ease, opacity .22s ease;
+        }
+
+        .load-more-button:hover svg {
+            transform: translateX(-3px);
+        }
+
+        .load-more-button.is-loading svg {
+            opacity: .4;
+            transform: scale(.9);
+        }
+
+        .load-more-spinner {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.28);
+            border-top-color: #fff;
+            display: none;
+            animation: news-spin .8s linear infinite;
+        }
+
+        .load-more-button.is-loading .load-more-spinner {
+            display: inline-block;
+        }
+
+        .load-more-button.is-loading .load-more-arrow {
+            display: none;
+        }
+
+        @keyframes news-spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
         @media (max-width: 992px) {
             .news-header,
             .news-layout,
@@ -296,8 +452,17 @@
 
 @section('content')
     @php
-        $featured = $posts->first();
-        $listPosts = $featured ? $posts->where('id', '!=', $featured->id) : $posts;
+        $jalaliDate = function ($date, string $format = 'Y/m/d') {
+            if (empty($date)) {
+                return '---';
+            }
+
+            try {
+                return jdate($date)->format($format);
+            } catch (\Throwable $e) {
+                return optional($date)->format('Y/m/d') ?? '---';
+            }
+        };
         $coverUrl = function ($post) {
             if (empty($post->cover)) {
                 return null;
@@ -334,8 +499,8 @@
                                 <a href="{{ route('cvc.single-news', $featured->slug) }}">{{ $featured->title }}</a>
                             </h2>
                             <div class="featured-meta">
-                                <span>{{ optional($featured->created_at)->format('Y/m/d') }}</span>
-                                <span>{{ $featured->user->name ?? 'تحریریه CVC' }}</span>
+                                <span>{{ $jalaliDate($featured->created_at) }}</span>
+                                <span>{{ $featured->user->name ?? 'تحریریه' }}</span>
                             </div>
                         </div>
                     </article>
@@ -344,35 +509,26 @@
 
             <div class="news-layout">
                 <main>
-                    <div class="news-grid">
-                        @forelse($listPosts as $post)
-                            <article class="news-card">
-                                <a href="{{ route('cvc.single-news', $post->slug) }}">
-                                    <div class="news-thumb">
-                                        @if($coverUrl($post))
-                                            <img src="{{ $coverUrl($post) }}" alt="{{ $post->title }}">
-                                        @endif
-                                    </div>
-                                    <div class="news-card-body">
-                                        <div class="news-card-meta">
-                                            <span>{{ optional($post->created_at)->format('Y/m/d') }}</span>
-                                            <span>{{ $post->sub_title ?: 'عمومی' }}</span>
-                                        </div>
-                                        <h3>{{ $post->title }}</h3>
-                                        <p>{{ \Illuminate\Support\Str::limit(strip_tags($post->description ?? $post->full_description ?? ''), 150) }}</p>
-                                        <div class="tag-row">
-                                            @foreach($postTags($post) as $tag)
-                                                <span class="tag">{{ $tag }}</span>
-                                            @endforeach
-                                        </div>
-                                        <span class="read-more">مشاهده خبر</span>
-                                    </div>
-                                </a>
-                            </article>
-                        @empty
-                            <div class="empty-state">هنوز خبری ثبت نشده است.</div>
-                        @endforelse
+                    <div class="news-grid" id="newsGrid">
+                        @include('site.cvc.partials.news-cards', ['posts' => $listPosts])
                     </div>
+
+                    @if($hasMore)
+                        <div class="load-more-wrap">
+                            <button
+                                type="button"
+                                id="loadMoreNews"
+                                class="load-more-button"
+                                data-next-offset="{{ $nextOffset }}"
+                            >
+                                <span class="load-more-spinner" aria-hidden="true"></span>
+                                <svg class="load-more-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M6 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span data-load-more-label>نمایش بیشتر</span>
+                            </button>
+                        </div>
+                    @endif
                 </main>
 
                 <aside>
@@ -387,7 +543,7 @@
                                 </div>
                                 <div>
                                     <div
-                                        class="popular-date">{{ optional($popularPost->created_at)->format('Y/m/d') }}</div>
+                                        class="popular-date">{{ $jalaliDate($popularPost->created_at) }}</div>
                                     <div class="popular-title">{{ $popularPost->title }}</div>
                                 </div>
                             </a>
@@ -423,4 +579,3 @@
         </div>
     </section>
 @endsection
-
