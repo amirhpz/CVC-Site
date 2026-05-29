@@ -347,7 +347,7 @@
     <div class="container">
         <nav>
             <div class="logo">
-                <img class="logo-icon" src="{{asset('/site/assets/images/logo/logo.png')}}" alt="">
+                <img class="logo-icon" src="{{asset('/site/assets/images/logo/Sina-VC-Logo.png')}}" alt="">
             </div>
 
             <!-- Desktop Menu -->
