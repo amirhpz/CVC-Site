@@ -67,7 +67,7 @@
         }
 
         .logo-icon {
-            width: 50px;
+            width: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -328,8 +328,7 @@
             }
 
             .logo-icon {
-                width: 35px;
-                height: 35px;
+                width: 120px;
             }
 
             .footer-content {
